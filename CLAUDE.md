@@ -4,8 +4,8 @@ Durable tools and patterns for engineers working with AI agents.
 
 - **Type**: Tool umbrella — tools, durable patterns, advisory content
 - **Status**: Active (March 2026)
-- **Flagship tool**: agent-ready-projects (v1.5.0)
-- **agent-ready-projects**: v1.5.0
+- **Flagship tool**: agent-ready-projects (v1.7.0)
+- **agent-ready-projects**: v1.7.0
 
 ## Before You Start
 
@@ -14,7 +14,8 @@ Durable tools and patterns for engineers working with AI agents.
 | Understanding the core argument | `PROPOSITION.md` — the four patterns and what's genuinely new |
 | Reviewing critical feedback | `REVIEW-SYNTHESIS.md` — six reviews + priority action plan |
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
-| Working on a case study | `case-studies/README.md` — template and conventions |
+| Working on a case study | `case-studies/README.md` — template and conventions (own projects) |
+| Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
 | Working on research content | `research/README.md` — research questions and methodology |
 | Working on the guide | `guide/README.md` — pattern library structure |
 | Working on the website | `site/` + `docs/VIBE.md` — Astro static site, visual identity guide, `npm run dev` to preview |
@@ -60,13 +61,20 @@ augmented-engineering/
 ├── PROPOSITION.md           # Core argument — read first (ground truth for the four patterns)
 ├── REVIEW-SYNTHESIS.md      # Critical reviews from 6 perspectives
 ├── CHEATSHEET.md            # Practitioner-friendly decision rules
-├── case-studies/            # Five case studies (pattern-first)
+├── case-studies/            # Five case studies (pattern-first, own projects)
 │   ├── README.md            # Template + conventions
 │   ├── opal.md              # Recursive V&V
 │   ├── vmodel-eu.md         # Role specialization
 │   ├── driven-pendulum.md   # Reproduce, don't assess
 │   ├── agent-ready-projects.md  # Auto-loading cliff
 │   └── agent-ready-papers.md    # Typed verification
+├── examples/                # Evidence from external sources (pattern-first)
+│   ├── README.md            # Conventions + index
+│   ├── safety-checklist-looks-right.md  # HAZOP: Reproduce, Don't Assess
+│   ├── pcb-design-90-percent.md         # LANL: Layer Your Verification
+│   ├── coder-to-architect.md            # Practitioners: All four patterns
+│   ├── wisdom-not-intelligence.md       # Qodo $70M: Verification + Context
+│   └── developers-think-faster.md       # METR: Learn the Material
 ├── research/                # Research questions + methodology
 ├── guide/                   # Pattern library
 │   ├── patterns/            # Scaffolded, not yet populated
