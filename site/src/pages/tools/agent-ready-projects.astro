@@ -105,6 +105,7 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
           <tr><td>Memory index</td><td><code>MEMORY.md</code></td><td>—</td><td>—</td><td>—</td></tr>
           <tr><td>Runbook</td><td colspan="4"><code>docs/RUNBOOK.md</code> (same everywhere)</td></tr>
           <tr><td>Gotcha log</td><td colspan="4"><code>memory/gotcha-log.md</code> (same everywhere)</td></tr>
+          <tr><td>Decision records</td><td colspan="4"><code>docs/decisions/ADR-NNN-slug.md</code> (same everywhere)</td></tr>
         </tbody>
       </table>
     </section>
@@ -232,6 +233,23 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 
       <div class="key-insight">
         <strong>The principle:</strong> Checklists are most valuable at stage boundaries — when the agent claims "I'm done" but hasn't verified against the definition of done. The QA checklist enforces adversarial review: no rubber-stamp approvals.
+      </div>
+
+      <h3>Decision records</h3>
+      <p>All templates use <strong>YAML frontmatter</strong> for machine-parseable metadata — any tool or script can extract project identity, decision status, or review agent capabilities without markdown interpretation.</p>
+      <div class="checklist-highlights">
+        <div class="checklist-card">
+          <h4>ADR Template</h4>
+          <p>Options matrix with pros/cons tables, consequences (positive/negative/risks), and concrete "Revisit If" triggers that prevent re-debating settled questions.</p>
+        </div>
+        <div class="checklist-card">
+          <h4>YAML Frontmatter</h4>
+          <p>Project files (<code>stack</code>, <code>status</code>, <code>repo</code>), decision records (<code>status</code>, <code>superseded_by</code>), and review agents (<code>domain</code>, <code>tags</code>) — structured data accessible to any tool.</p>
+        </div>
+        <div class="checklist-card">
+          <h4>Decision Index</h4>
+          <p>Status table in <code>docs/decisions/README.md</code> gives a quick overview of all decisions and their lifecycle state.</p>
+        </div>
       </div>
     </section>
 
