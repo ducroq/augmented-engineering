@@ -1,0 +1,155 @@
+---
+import Base from '../../layouts/Base.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+---
+
+<Base title="Log — Augmented Engineering">
+  <div class="log-index">
+    <header class="log-hero">
+      <a href={base} class="back-link">&larr; Home</a>
+      <h1>Log</h1>
+      <p class="subtitle">What was built, what was learned, what changed. Not a blog — an engineering journal.</p>
+    </header>
+
+    <div class="entries">
+      <a href={`${base}log/v1-8-0-multiplayer-coordination`} class="log-card">
+        <time>2026-04-12</time>
+        <h3>v1.8.0 — Multiplayer coordination</h3>
+        <p>Layer 5 for multi-contributor projects. What breaks when a second developer's agent joins a well-documented codebase, and the coordination patterns we built to fix it.</p>
+        <div class="log-card-tags">
+          <span class="log-card-tag">agent-ready-projects</span>
+          <span class="log-card-tag">release</span>
+        </div>
+      </a>
+
+      <a href={`${base}log/v1-5-0-validation-and-audit`} class="log-card">
+        <time>2026-04-11</time>
+        <h3>v1.5.0–v1.7.2 — Validation, audit, and frontmatter</h3>
+        <p>Definition-of-done checklists, Git Reality Check, doc sync in /curate, /audit-context skill, ADR template, YAML frontmatter for machine-parseable metadata.</p>
+        <div class="log-card-tags">
+          <span class="log-card-tag">agent-ready-projects</span>
+          <span class="log-card-tag">release</span>
+        </div>
+      </a>
+
+      <a href={`${base}log/v1-3-0-self-learning-agents`} class="log-card">
+        <time>2026-03-26</time>
+        <h3>v1.3.0 — Self-learning review agents</h3>
+        <p>Agents surface their own blind spots. Review agent template, ground truth principle, three-document pattern, non-code domain validation.</p>
+        <div class="log-card-tags">
+          <span class="log-card-tag">agent-ready-projects</span>
+          <span class="log-card-tag">release</span>
+        </div>
+      </a>
+
+      <a href={`${base}log/v1-2-0-in-repo-memory`} class="log-card">
+        <time>2026-03-19</time>
+        <h3>v1.2.0 — In-repo memory over auto-memory</h3>
+        <p>Hidden auto-memory failed across 28 projects. ADR-001: move memory into the repo where it's visible, searchable, and version-controlled.</p>
+        <div class="log-card-tags">
+          <span class="log-card-tag">agent-ready-projects</span>
+          <span class="log-card-tag">release</span>
+          <span class="log-card-tag">ADR</span>
+        </div>
+      </a>
+
+      <a href={`${base}log/v1-0-0-first-release`} class="log-card">
+        <time>2026-03-13</time>
+        <h3>v1.0.0 — First release</h3>
+        <p>Four layers, task-triggered pointers, the self-learning loop. A layered memory system that makes AI agents smarter with every session.</p>
+        <div class="log-card-tags">
+          <span class="log-card-tag">agent-ready-projects</span>
+          <span class="log-card-tag">release</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .log-index {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  .log-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    color: var(--text);
+  }
+
+  .log-hero h1 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-top: 0;
+  }
+
+  .entries {
+    margin-top: 1rem;
+  }
+
+  .log-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.15s;
+  }
+
+  .log-card:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .log-card:hover {
+    padding-left: 0.5rem;
+  }
+
+  .log-card time {
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .log-card h3 {
+    font-size: 1.05rem;
+    margin: 0.3rem 0 0.4rem;
+  }
+
+  .log-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .log-card-tags {
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+
+  .log-card-tag {
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.1rem 0.4rem;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-muted);
+  }
+</style>

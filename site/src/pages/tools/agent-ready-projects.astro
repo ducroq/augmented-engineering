@@ -62,7 +62,7 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <!-- TAB 2: THE LAYERS -->
     <section class="tab-content" id="tab-layers">
       <h2>The Layers</h2>
-      <p>Assuming your project spans multiple sessions (otherwise this system isn't useful), four layers — each added when the previous one gets crowded. Not every project needs all four.</p>
+      <p>Five layers — each added when you need it. Most projects use 1-4. Layer 5 is for teams.</p>
 
       <div class="mermaid-wrap">
         <pre class="mermaid" id="dia-layers"></pre>
@@ -93,6 +93,12 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
           <p>Problem → Root Cause → Fix. Append-only. Not a daily journal.</p>
           <p class="layer-meta">Triggered when stuck.</p>
         </div>
+        <div class="layer-card layer-5">
+          <div class="layer-badge">Layer 5 — multi-contributor</div>
+          <h3>Coordination</h3>
+          <p>Contributors, shared constraints, convention proposals, WIP signals, memory conventions.</p>
+          <p class="layer-meta">Triggered when starting work as a contributor.</p>
+        </div>
       </div>
 
       <h3>Tool mapping</h3>
@@ -106,6 +112,7 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
           <tr><td>Runbook</td><td colspan="4"><code>docs/RUNBOOK.md</code> (same everywhere)</td></tr>
           <tr><td>Gotcha log</td><td colspan="4"><code>memory/gotcha-log.md</code> (same everywhere)</td></tr>
           <tr><td>Decision records</td><td colspan="4"><code>docs/decisions/ADR-NNN-slug.md</code> (same everywhere)</td></tr>
+          <tr><td>Coordination</td><td colspan="4"><code>COORDINATION.md</code> (same everywhere — opt-in for multi-contributor)</td></tr>
         </tbody>
       </table>
     </section>
@@ -317,12 +324,16 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     Q3 -- Yes --> L3(["3. Memory"])
     Q3 -- No --> L4(["4. Gotcha Log"])
     L3 --> L4
+    L4 --> Q5{"Multiple<br/>contributors?"}
+    Q5 -- Yes --> L5(["5. Coordination"])
     classDef layer ${c.blue}
     classDef always ${c.green}
     classDef decision ${c.yellow}
+    classDef team ${c.blue}
     class L1,L4 always
     class L2,L3 layer
-    class Q2,Q3 decision`;
+    class L5 team
+    class Q2,Q3,Q5 decision`;
 
   document.getElementById('dia-loop').textContent = `flowchart LR
     C(["CAPTURE<br/>Log problems"])

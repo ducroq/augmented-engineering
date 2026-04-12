@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.0.0 — First release — Augmented Engineering">
+  <LogEntry
+    date="2026-03-13"
+    title="v1.0.0 — First release"
+    tags={["agent-ready-projects", "release"]}
+  >
+    <p>First stable release of the agent-ready-projects framework. Four layers, one insight.</p>
+
+    <h2>The core problem</h2>
+
+    <p>AI coding agents start every session cold. They don't remember yesterday's bugs, your architectural decisions, or what they tried and failed. You repeat yourself, undo their mistakes, and wonder why they're not getting better.</p>
+
+    <p>The fix: a layered memory system that agents auto-load and self-navigate. Lessons get captured during work, promoted as they prove value, and retired when stale.</p>
+
+    <h2>What shipped</h2>
+
+    <ul>
+      <li><strong>The auto-loading cliff</strong> — the binary divide between files agents load automatically and everything else. Task-triggered pointers ("when doing X, read Y") bridge it.</li>
+      <li><strong>Four layers</strong> — Project file (identity), Runbook (operations), Memory (learned knowledge), Gotcha log (problem-fix journal). Each added when the previous gets crowded.</li>
+      <li><strong>The self-learning loop</strong> — Capture during work, Surface at end-of-session, Promote recurring lessons, Retire when fixed.</li>
+      <li><strong>Templates</strong> — project-file.md, memory-index.md, gotcha-log.md, RUNBOOK.md. Ready to use with any AI coding agent.</li>
+      <li><strong>Adopt prompt</strong> — paste into your agent, it reads the guide and scaffolds everything for your project.</li>
+    </ul>
+
+    <p>Works with Claude Code, Codex, Cursor, Windsurf, Copilot, Aider.</p>
+
+    <h2>References</h2>
+    <ul>
+      <li><a href="https://github.com/ducroq/agent-ready-projects">GitHub repository</a></li>
+    </ul>
+  </LogEntry>
+</Base>

@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.8.0 — Multiplayer Coordination — Augmented Engineering">
+  <LogEntry
+    date="2026-04-12"
+    title="v1.8.0 — Multiplayer coordination"
+    tags={["agent-ready-projects", "release"]}
+  >
+    <p>The <a href="https://github.com/ducroq/agent-ready-projects">agent-ready-projects</a> framework has been single-player since v1.0.0. One developer, one agent, layered memory that gets smarter across sessions. It works well for that case.</p>
+
+    <p>v1.8.0 adds <strong>Layer 5: Coordination</strong> — an opt-in layer for projects with multiple contributors, each using their own AI agent.</p>
+
+    <h2>What prompted this</h2>
+
+    <p>A second contributor joined <a href="https://github.com/ducroq/RenkumSpot">RenkumSpot</a>, a community platform we'd been building with thorough agent-ready infrastructure: layered memory, 16 ADRs, 820 schema validation tests, a gotcha log with a working promotion lifecycle.</p>
+
+    <p>Three things broke that better documentation couldn't fix:</p>
+
+    <ol>
+      <li><strong>Constraint visibility.</strong> The contributor's agent submitted a PR that changed a data format, breaking the rendering code. A constraint existed in the project file — but his agent treated it as the owner's note, not a shared agreement.</li>
+      <li><strong>Convention divergence.</strong> The contributor proposed enterprise coding standards (DDD, full TDD) for a volunteer static site. Without a staging area for proposals, the first signal of misalignment was a document that needed significant rework.</li>
+      <li><strong>Work overlap.</strong> The project's memory was shaped entirely by one person. No visibility into who was working on what.</li>
+    </ol>
+
+    <h2>What we found in the landscape</h2>
+
+    <p>We surveyed the field (April 2026). The gap is consistent:</p>
+
+    <ul>
+      <li>Every multi-agent framework (CrewAI, LangGraph, AutoGen, OpenAI Agents SDK) solves <em>single-user</em> multi-agent orchestration. None address multiple users' agents in the same codebase.</li>
+      <li>Every memory system (Mem0, Letta, Graphiti) is either single-user or multi-user-isolated. No open-source shared memory with governance.</li>
+      <li>Security is being addressed — <a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">OWASP Agentic Top 10</a> (Dec 2025), <a href="https://github.com/microsoft/agent-governance-toolkit">Microsoft Agent Governance Toolkit</a> (Apr 2026). But coordination patterns for teams? Nothing.</li>
+    </ul>
+
+    <div class="evidence-box">
+      <p><strong>Key finding:</strong> All existing frameworks solve "one user, many agents." Nobody addresses "many users, many agents." The coordination gap is real and unoccupied.</p>
+    </div>
+
+    <h2>What shipped</h2>
+
+    <p>A new <code>COORDINATION.md</code> template (<a href="https://github.com/ducroq/agent-ready-projects/blob/master/templates/coordination.md">template</a>, <a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/decisions/ADR-002-multiplayer-coordination-layer.md">ADR-002</a>) with five sections:</p>
+
+    <ul>
+      <li><strong>Contributors</strong> — who's active, their focus areas, how they work</li>
+      <li><strong>Shared Constraints</strong> — what the team agreed to (distinct from project file constraints, which are "how this project works")</li>
+      <li><strong>Convention Proposals</strong> — staging area for proposed changes, preventing surprise PRs</li>
+      <li><strong>Work in Progress</strong> — collision-avoidance signals</li>
+      <li><strong>Memory Conventions</strong> — shared vs personal memory, gotcha log tagging</li>
+    </ul>
+
+    <p>Layer 5 is <strong>not auto-loaded</strong>. It sits below the auto-loading cliff, accessed via a task-triggered pointer: "When starting work as a contributor → read COORDINATION.md." Single-user projects are completely unaffected.</p>
+
+    <h2>Design decisions</h2>
+
+    <p>Three options considered:</p>
+
+    <table>
+      <thead><tr><th>Option</th><th>Verdict</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Extend existing layers</td><td>Rejected</td><td>Mixes "what is this project" (stable) with "who's working on what" (volatile)</td></tr>
+        <tr><td>New Layer 5 — opt-in</td><td>Chosen</td><td>Each concern gets its own layer; single-user workflow unchanged</td></tr>
+        <tr><td>Personal overlay files</td><td>Rejected</td><td>Doesn't solve coordination — the core problem remains</td></tr>
+      </tbody>
+    </table>
+
+    <h2>First adoption</h2>
+
+    <p>RenkumSpot adopted v1.8.0 the same day. The coordination file now lists three contributors, documents the shared constraints that came from the PR #5 incident, and archives the convention proposal that led to ADR-015. The memory directory was committed (previously local-only), and the <code>/curate</code> and <code>/audit-context</code> skills were installed.</p>
+
+    <p>The <code>/curate</code> skill immediately cleaned up the memory index — removing duplicated content, extracting a topic file for tooling lessons, and deleting a redundant contributor note that was now covered by COORDINATION.md.</p>
+
+    <h2>What's next</h2>
+
+    <ul>
+      <li>Broader adoption across projects with multiple contributors</li>
+      <li>Feedback from Robert (the second contributor) on whether the coordination file changes his onboarding experience</li>
+      <li>Potential article: "It Starts With Markdown" — positioning the framework's approach in the broader context of AGENTS.md, MCP, and Agent Skills convergence</li>
+    </ul>
+
+    <h2>References</h2>
+
+    <ul>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/decisions/ADR-002-multiplayer-coordination-layer.md">ADR-002: Multiplayer coordination layer</a></li>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/blob/master/templates/coordination.md">COORDINATION.md template</a></li>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md">Changelog v1.8.0</a></li>
+      <li><a href="https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/">OWASP Top 10 for Agentic Applications 2026</a></li>
+      <li><a href="https://github.com/microsoft/agent-governance-toolkit">Microsoft Agent Governance Toolkit</a></li>
+    </ul>
+  </LogEntry>
+</Base>

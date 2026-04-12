@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.2.0 — In-repo memory — Augmented Engineering">
+  <LogEntry
+    date="2026-03-19"
+    title="v1.2.0 — In-repo memory over auto-memory"
+    tags={["agent-ready-projects", "release", "ADR"]}
+  >
+    <p>The framework originally stored Layer 3 (memory) in the tool's auto-memory directory — a hidden, path-mangled location outside the repo. After applying this across 28 projects, three problems emerged that led to <a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/decisions/ADR-001-in-repo-memory-over-auto-memory.md">ADR-001</a>.</p>
+
+    <h2>The problems</h2>
+
+    <ol>
+      <li><strong>Hidden memory is invisible memory.</strong> ~75 files across 28 projects in auto-memory directories. Most were never reviewed. The self-learning loop depends on engineers seeing what's there — hidden files don't get curated.</li>
+      <li><strong>Auto-memory creates orphans.</strong> Moving or renaming a project creates a new auto-memory path. The old one becomes an orphan, never loaded again.</li>
+      <li><strong>The "human benefit" heuristic fails.</strong> Routing "agent-only" content to auto-memory doesn't work because gotcha logs, infrastructure notes, and privacy protocols are useful for humans too. The only truly agent-only content is ephemeral session state — which shouldn't be persisted at all.</li>
+    </ol>
+
+    <h2>The decision</h2>
+
+    <p>Memory files now live in-repo in a <code>memory/</code> directory. Visible in the file tree, searchable, version-controlled, portable. Clone the repo, get the memory. We migrated 28 projects (~75 files) in one session.</p>
+
+    <div class="evidence-box">
+      <p><strong>Side discovery:</strong> The global instructions file (<code>~/.claude/CLAUDE.md</code>) had accumulated project-specific content — a 30-voice TTS library, podcast workflows — loaded into every project. This is the auto-loading cliff at the user level: content for one project burning tokens in all projects.</p>
+    </div>
+
+    <h2>Also in this release</h2>
+    <ul>
+      <li>v1.1.0: Framework generalized to be tool-agnostic — Cursor <code>.mdc</code> support, universal terminology, worked example (Task Tracker API)</li>
+      <li>First adoption feedback from <a href="https://github.com/ducroq/driven-pendulum">driven-pendulum</a></li>
+    </ul>
+  </LogEntry>
+</Base>

@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.3.0 — Self-learning review agents — Augmented Engineering">
+  <LogEntry
+    date="2026-03-26"
+    title="v1.3.0 — Self-learning review agents"
+    tags={["agent-ready-projects", "release"]}
+  >
+    <p>Agents can now surface their own blind spots. After completing a review, they check their issue categories and ask whether to promote new patterns — closing the self-learning loop without requiring the user to notice patterns themselves.</p>
+
+    <h2>What shipped</h2>
+
+    <ul>
+      <li><strong>Self-learning agents</strong> — agents run a post-review self-check and propose new issue categories from what they found.</li>
+      <li><strong>Review agent template</strong> — reusable skeleton: role + principles, typed issue categories, procedure, output format, self-check. Works for any domain — code review, rubric design, assessment audit, paper review.</li>
+      <li><strong>Ground truth principle</strong> — when multiple artifacts describe the same thing, designate one as canonical. Everything else aligns to it.</li>
+      <li><strong>Three-document pattern</strong> — separate instructions (how to evaluate), criteria (how to score), and output template (what the result looks like).</li>
+      <li><strong>Non-code domain example</strong> — <a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/EXAMPLE-ASSESSMENT.md">educational assessment system</a> demonstrating the framework works beyond software.</li>
+    </ul>
+
+    <h2>Adoption evidence</h2>
+
+    <p>Adopted for <a href="https://github.com/ducroq/agent-ready-assessment">agent-ready-assessment</a>: educational assessment with 3 course modules, 4 review agents, and a full self-learning loop. Validates the layered model for non-code projects.</p>
+
+    <h2>Also in v1.3.x</h2>
+    <ul>
+      <li>v1.3.3: <code>/curate</code> skill — automates end-of-session curation</li>
+      <li>v1.3.2: New anti-pattern — files with implicit runtime semantics (a review agent's <code>wrangler.toml</code> broke 7+ deploys)</li>
+      <li>v1.3.1: Negative results as first-class knowledge — failed experiments prevent future agents from retrying dead ends</li>
+    </ul>
+  </LogEntry>
+</Base>

@@ -16,9 +16,9 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <a href={`${base}tools/agent-ready-projects`} class="tool-card">
       <div class="tool-header">
         <h3>agent-ready-projects</h3>
-        <span class="tool-version">v1.7.2</span>
+        <span class="tool-version">v1.8.0</span>
       </div>
-      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
+      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. <strong>New in v1.8.0:</strong> multiplayer coordination for multi-contributor projects. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
       <p class="tool-install">Visual walkthrough with interactive diagrams.</p>
       <span class="read-more">Learn more &rarr;</span>
     </a>
@@ -83,6 +83,31 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
       </tbody>
     </table>
     <p class="table-note">Gray rows are advisory — useful now, may change as models improve.</p>
+  </section>
+
+  <section id="log" class="log-section">
+    <h2>Log</h2>
+    <p class="section-intro">What was built, what was learned, what changed.</p>
+
+    <div class="log-list">
+      <a href={`${base}log/v1-8-0-multiplayer-coordination`} class="log-item">
+        <time>2026-04-12</time>
+        <span class="log-item-title">v1.8.0 — Multiplayer coordination</span>
+        <span class="log-item-desc">Layer 5 for multi-contributor projects. What breaks when contributor #2 joins.</span>
+      </a>
+      <a href={`${base}log/v1-5-0-validation-and-audit`} class="log-item">
+        <time>2026-04-11</time>
+        <span class="log-item-title">v1.5.0–v1.7.2 — Validation, audit, and frontmatter</span>
+        <span class="log-item-desc">Checklists, Git Reality Check, /audit-context, ADR template, YAML frontmatter.</span>
+      </a>
+      <a href={`${base}log/v1-3-0-self-learning-agents`} class="log-item">
+        <time>2026-03-26</time>
+        <span class="log-item-title">v1.3.0 — Self-learning review agents</span>
+        <span class="log-item-desc">Agents surface their own blind spots. Review agent template, ground truth principle.</span>
+      </a>
+    </div>
+
+    <a href={`${base}log`} class="log-all">All entries &rarr;</a>
   </section>
 
   <section id="about" class="about-section">
@@ -332,6 +357,61 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-top: 0.5rem;
+  }
+
+  /* Log */
+  .log-section {
+    max-width: 38rem;
+    margin-top: 3rem;
+  }
+
+  .log-list {
+    margin-top: 0.5rem;
+  }
+
+  .log-item {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.15s;
+  }
+
+  .log-item:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .log-item:hover {
+    padding-left: 0.5rem;
+  }
+
+  .log-item time {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .log-item-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+
+  .log-item-desc {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+
+  .log-all {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--evidence);
+    font-weight: 600;
   }
 
   /* About */

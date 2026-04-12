@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.5.0–v1.7.2 — Validation, audit, and frontmatter — Augmented Engineering">
+  <LogEntry
+    date="2026-04-11"
+    title="v1.5.0–v1.7.2 — Validation, audit, and frontmatter"
+    tags={["agent-ready-projects", "release"]}
+  >
+    <p>Four releases in quick succession, each closing a gap discovered through adoption. The theme: making the framework's infrastructure verifiable, auditable, and machine-parseable.</p>
+
+    <h2>v1.5.0 — Validation checklists (2026-04-03)</h2>
+
+    <p>Definition-of-done checklists for each workflow stage: architect, test, implement, QA. Lightweight gates (10-15 items), not enterprise compliance.</p>
+
+    <p>Key innovation: the <strong>Git Reality Check</strong> in the QA checklist — cross-reference <code>git diff --stat</code> against claimed changes. Flag files changed but undocumented, or documented but unchanged. Plus a minimum findings requirement: reviews must surface at least 3 observations. No "looks good" without evidence.</p>
+
+    <p>Origin: analysis of BMAD framework's code review workflow, plus a real incident where systemd sandbox constraints broke a service that passed all local tests.</p>
+
+    <h2>v1.6.0 — Doc sync in /curate (2026-04-04)</h2>
+
+    <p><code>/curate</code> now catches documentation drift from code changes, not just memory staleness. After a session with 18 file changes in <a href="https://github.com/ducroq/podcast-generator">podcast-generator</a>, CLAUDE.md and RUNBOOK were stale — but the existing curate steps didn't catch it because they focus on memory, not docs.</p>
+
+    <h2>v1.7.0 — /audit-context skill (2026-04-08)</h2>
+
+    <p>Monthly structural health audit — catches what session-level curation and version drift checks miss: bloated auto-loaded files, duplicated facts across layers, content in the wrong layer, orphaned topic files, gitignore mismatches. Seven-step check with severity-grouped report.</p>
+
+    <h2>v1.7.1–v1.7.2 — ADR template and YAML frontmatter (2026-04-11)</h2>
+
+    <p>The ADR template codifies decision records with YAML frontmatter (<code>status</code>, <code>date</code>, <code>deciders</code>, <code>superseded_by</code>), comparison tables, "Revisit If" triggers, and an embedded decision index template. Synthesized from ADR patterns across three adopter projects.</p>
+
+    <p>v1.7.2 extended YAML frontmatter to project files (<code>stack</code>, <code>status</code>, <code>repo</code>, <code>framework</code>) and review agent templates (<code>domain</code>, <code>artifact_type</code>, <code>tags</code>). Any tool or script can now parse project identity and agent configuration without markdown interpretation.</p>
+  </LogEntry>
+</Base>
