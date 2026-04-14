@@ -85,6 +85,41 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <p class="table-note">Gray rows are advisory — useful now, may change as models improve.</p>
   </section>
 
+  <section id="writing" class="writing-section">
+    <h2>Writing</h2>
+    <p class="section-intro">Standalone ideas from practice. No framework required.</p>
+
+    <div class="writing-list">
+      <a href={`${base}writing/the-context-engineering-landscape`} class="writing-item">
+        <time>2026-04-14</time>
+        <span class="writing-item-title">The Context Engineering Landscape</span>
+        <span class="writing-item-desc">Who's building what for AI coding agents — and what nobody's building yet.</span>
+      </a>
+      <a href={`${base}writing/when-your-framework-gets-commoditized`} class="writing-item">
+        <time>2026-04-14</time>
+        <span class="writing-item-title">When Your Framework Gets Commoditized</span>
+        <span class="writing-item-desc">I built a context engineering framework. The ecosystem absorbed it. Here's what that taught me.</span>
+      </a>
+      <a href={`${base}writing/the-auto-loading-cliff`} class="writing-item">
+        <time>2026-04-14</time>
+        <span class="writing-item-title">The Auto-Loading Cliff</span>
+        <span class="writing-item-desc">The invisible line that determines whether your agent reads your docs or ignores them.</span>
+      </a>
+      <a href={`${base}writing/self-verifying-memory`} class="writing-item">
+        <time>2026-04-14</time>
+        <span class="writing-item-title">Self-Verifying Memory</span>
+        <span class="writing-item-desc">Your agent remembers things that are no longer true. Here's how to fix that.</span>
+      </a>
+      <a href={`${base}writing/task-triggered-pointers`} class="writing-item">
+        <time>2026-04-14</time>
+        <span class="writing-item-title">Task-Triggered Pointers</span>
+        <span class="writing-item-desc">The one-line change that makes agents actually read your docs.</span>
+      </a>
+    </div>
+
+    <a href={`${base}writing`} class="writing-all">All writing &rarr;</a>
+  </section>
+
   <section id="log" class="log-section">
     <h2>Log</h2>
     <p class="section-intro">What was built, what was learned, what changed.</p>
@@ -362,6 +397,61 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-top: 0.5rem;
+  }
+
+  /* Writing */
+  .writing-section {
+    max-width: 38rem;
+    margin-top: 3rem;
+  }
+
+  .writing-list {
+    margin-top: 0.5rem;
+  }
+
+  .writing-item {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.15s;
+  }
+
+  .writing-item:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .writing-item:hover {
+    padding-left: 0.5rem;
+  }
+
+  .writing-item time {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .writing-item-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+
+  .writing-item-desc {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+
+  .writing-all {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--evidence);
+    font-weight: 600;
   }
 
   /* Log */

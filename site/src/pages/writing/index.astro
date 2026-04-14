@@ -1,0 +1,99 @@
+---
+import Base from '../../layouts/Base.astro';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+---
+
+<Base title="Writing — Augmented Engineering">
+  <section class="writing-section">
+    <h1>Writing</h1>
+    <p class="section-intro">Standalone ideas from practice. No framework required.</p>
+
+    <div class="article-list">
+      <a href={`${base}writing/the-context-engineering-landscape`} class="article-item">
+        <time>2026-04-14</time>
+        <span class="article-title">The Context Engineering Landscape</span>
+        <span class="article-desc">Who's building what for AI coding agents — and what nobody's building yet.</span>
+      </a>
+      <a href={`${base}writing/when-your-framework-gets-commoditized`} class="article-item">
+        <time>2026-04-14</time>
+        <span class="article-title">When Your Framework Gets Commoditized</span>
+        <span class="article-desc">I built a context engineering framework. The ecosystem absorbed it. Here's what that taught me.</span>
+      </a>
+      <a href={`${base}writing/the-auto-loading-cliff`} class="article-item">
+        <time>2026-04-14</time>
+        <span class="article-title">The Auto-Loading Cliff</span>
+        <span class="article-desc">The invisible line that determines whether your agent reads your docs or ignores them.</span>
+      </a>
+      <a href={`${base}writing/self-verifying-memory`} class="article-item">
+        <time>2026-04-14</time>
+        <span class="article-title">Self-Verifying Memory</span>
+        <span class="article-desc">Your agent remembers things that are no longer true. Here's how to fix that.</span>
+      </a>
+      <a href={`${base}writing/task-triggered-pointers`} class="article-item">
+        <time>2026-04-14</time>
+        <span class="article-title">Task-Triggered Pointers</span>
+        <span class="article-desc">The one-line change that makes agents actually read your docs.</span>
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .writing-section {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+
+  .writing-section h1 {
+    margin-bottom: 0.3rem;
+  }
+
+  .section-intro {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .article-list {
+    margin-top: 0.5rem;
+  }
+
+  .article-item {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.15s;
+  }
+
+  .article-item:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .article-item:hover {
+    padding-left: 0.5rem;
+  }
+
+  .article-item time {
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-muted);
+  }
+
+  .article-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 0.2rem;
+  }
+
+  .article-desc {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.15rem;
+  }
+</style>
