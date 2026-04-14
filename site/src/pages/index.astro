@@ -16,9 +16,9 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <a href={`${base}tools/agent-ready-projects`} class="tool-card">
       <div class="tool-header">
         <h3>agent-ready-projects</h3>
-        <span class="tool-version">v1.8.0</span>
+        <span class="tool-version">v1.9.0</span>
       </div>
-      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. <strong>New in v1.8.0:</strong> multiplayer coordination for multi-contributor projects. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
+      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. <strong>New in v1.9.0:</strong> self-verifying memory — agents embed verification commands in state claims, checked automatically on read and curate. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
       <p class="tool-install">Visual walkthrough with interactive diagrams.</p>
       <span class="read-more">Learn more &rarr;</span>
     </a>
@@ -90,6 +90,11 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <p class="section-intro">What was built, what was learned, what changed.</p>
 
     <div class="log-list">
+      <a href={`${base}log/v1-9-0-self-verifying-memory`} class="log-item">
+        <time>2026-04-14</time>
+        <span class="log-item-title">v1.9.0 — Self-verifying memory</span>
+        <span class="log-item-desc">Agents wrote "shipped" in memory. 230 articles broke. Now memory proves itself true.</span>
+      </a>
       <a href={`${base}log/v1-8-0-multiplayer-coordination`} class="log-item">
         <time>2026-04-12</time>
         <span class="log-item-title">v1.8.0 — Multiplayer coordination</span>

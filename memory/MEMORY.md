@@ -50,6 +50,8 @@
 - **agent-ready-projects v1.6.0** (2026-04-04): Doc sync step in /curate — catches documentation drift from code changes.
 - **agent-ready-projects v1.7.0** (2026-04-08): Structural health audit skill (/audit-context). Update prompt PART 2 delegates to skill instead of inlining checks. Site homepage version bumped.
 - **agent-ready-projects v1.7.1-1.7.2** (2026-04-11): ADR template with YAML frontmatter, decision matrices, "Revisit If" triggers. YAML frontmatter added to project-file and review-agent templates. Synthesized from ADR patterns across agent-ready-papers, RenkumSpot, shared_vault. Site tool page updated with decision records section.
+- **agent-ready-projects v1.8.0** (2026-04-12): Multiplayer coordination — Layer 5. Site log entry added, engineering log section created (5 entries v1.0.0–v1.8.0).
+- **agent-ready-projects v1.9.0** (2026-04-14): Self-verifying memory — agents embed verification commands in state claims. Site log entry added, homepage updated (version badge, feature highlight, log list). Landscape updated with Superpowers (151K+ stars). 10 test fixtures for curate verification protocol.
 
 ## Related Repos — Quick Reference
 
@@ -86,7 +88,7 @@
 - **Case study style**: Pattern-first, loosely coupled to claim registry — not thesis chapters
 - **Material properties split**: Persistent (confidence inflation, observation-calibration gap) vs. transient (scoring regression, plausible-but-wrong severity)
 - **Personal project**: No institutional references (HAN removed from all public-facing docs)
-- **Adopted agent-ready-projects v1.7.2**: Layered memory system for session continuity. v1.7.2 adds: ADR template with YAML frontmatter, decision matrices, "Revisit If" triggers; YAML frontmatter for project-file and review-agent templates. Previous: v1.7.0 /audit-context skill, v1.6.0 doc sync in /curate, v1.5.0 validation checklists and adversarial QA
+- **Adopted agent-ready-projects v1.9.0**: Layered memory system for session continuity. v1.9.0 adds self-verifying memory (agents embed verification commands in state claims). v1.8.0 added multiplayer coordination (Layer 5). Previous: v1.7.x YAML frontmatter, v1.6.0 doc sync, v1.5.0 validation checklists
 - **Adopted agent-ready-papers claim registry**: Typed verification with confidence tiers
 - **Feedback loop framing adopted** (2026-03-17): "agent generates → agent reviews → agent validates → engineer decides" — borrowed from practitioner discourse, grounded in our evidence
 - **In-repo memory by default**: Memory files live in `memory/` inside the repo, not in tool auto-memory. Exception only for content that should never be committed. Per ADR-001 in agent-ready-projects.

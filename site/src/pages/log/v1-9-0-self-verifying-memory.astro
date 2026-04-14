@@ -1,0 +1,94 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogEntry from '../../components/LogEntry.astro';
+---
+
+<Base title="v1.9.0 — Self-Verifying Memory — Augmented Engineering">
+  <LogEntry
+    date="2026-04-14"
+    title="v1.9.0 — Self-verifying memory"
+    tags={["agent-ready-projects", "release"]}
+  >
+    <p>The memory system that makes agents smarter across sessions has a trust problem. An agent can write "shipped" in memory based on a session test, and every future session will trust that claim without question. v1.9.0 fixes this.</p>
+
+    <h2>The incident</h2>
+
+    <p>During a dev session on <a href="https://github.com/ducroq/ovr.news">ovr.news</a>, an agent built an ML logo classifier and tested it against a running endpoint. The endpoint responded correctly. Memory recorded: <em>"ML logo classifier shipped — endpoint was only wired up and actually working since session 3."</em></p>
+
+    <p>The service restarted overnight. The endpoint had never been persisted to the deployed codebase — it only existed in the running process during that session. From that point on, every classifier call returned 404, silently failed open, and let logos through.</p>
+
+    <p><strong>230 logo images</strong> accumulated in 2,311 articles (10%) before a human noticed. Every agent session in between read the memory, saw "shipped," and moved on.</p>
+
+    <h2>The partial fix (v1.8.1)</h2>
+
+    <p>The immediate response added three things:</p>
+
+    <ul>
+      <li>Guide paragraph: "Distinguish observations from deployed state" — telling agents to qualify their claims</li>
+      <li>A new <code>/curate</code> check: scan memory for "shipped" / "deployed" and flag entries without verification</li>
+      <li>A worked example in the gotcha-log template showing the failure pattern</li>
+    </ul>
+
+    <p>Necessary, but insufficient. It told agents what to do without giving them a mechanism. Guidance is advisory — the next agent that writes "deployed" in a hurry will skip the qualification.</p>
+
+    <h2>The real fix (v1.9.0)</h2>
+
+    <p><strong>Self-verifying memory</strong>: verification commands that travel with the claim, executed by the agent, invisible to the user. Three touchpoints:</p>
+
+    <ol>
+      <li><strong>On write</strong>: When recording a state claim, the agent embeds a verification command as an HTML comment:<br/>
+        <code>&lt;!-- verify: curl -s https://api/classify -d '...' | grep -q '"label"' &amp;&amp; echo PASS || echo FAIL --&gt;</code></li>
+      <li><strong>On read</strong>: Before trusting a memory entry with a verify comment, the agent runs the command. If it fails, the entry is treated as stale.</li>
+      <li><strong>On curate</strong>: The <code>/curate</code> skill runs all embedded verify commands and reports pass/fail. Entries without verification are flagged as unverified.</li>
+    </ol>
+
+    <p>Not every memory entry needs this. The agent infers the claim type from language:</p>
+
+    <table>
+      <thead><tr><th>Claim type</th><th>Trigger words</th><th>Agent action</th></tr></thead>
+      <tbody>
+        <tr><td><strong>State</strong></td><td>"shipped," "deployed," "live," "running"</td><td>Embed <code>&lt;!-- verify: command --&gt;</code></td></tr>
+        <tr><td><strong>Observation</strong></td><td>"during session," "tested," "responded"</td><td>Qualify with session context</td></tr>
+        <tr><td><strong>Decision</strong></td><td>"chose," "decided," "because"</td><td>No verification needed</td></tr>
+        <tr><td><strong>Pattern</strong></td><td>"always," "never," "when X do Y"</td><td>No verification needed</td></tr>
+      </tbody>
+    </table>
+
+    <p>The key design constraint: <strong>no user-facing ceremony</strong>. No frontmatter schema, no mandatory fields. The verification comment is a convention the agent follows because the guide tells it to. The user never sees the overhead.</p>
+
+    <div class="evidence-box">
+      <p><strong>Research context:</strong> <a href="https://arxiv.org/abs/2602.11988">Gloaguen et al.</a> (ETH Zurich, February 2026) found that LLM-generated context files <em>reduced</em> task success by 3%. Static context that goes stale doesn't just fail to help — it actively hurts. Self-verifying memory is one response: state claims that can prove themselves true, or flag themselves as stale.</p>
+    </div>
+
+    <h2>Landscape positioning</h2>
+
+    <p>We surveyed memory systems and context frameworks. The gap is consistent:</p>
+
+    <ul>
+      <li>Memory systems (Mem0, Letta/MemGPT, Graphiti/Zep) solve storage and retrieval. None verify what they store.</li>
+      <li>Workflow frameworks (BMAD, <a href="https://github.com/obra/superpowers">Superpowers</a>) enforce development discipline. Neither addresses memory trust.</li>
+      <li>The ETH Zurich study shows static files can hurt. Nobody proposed making them self-verifying.</li>
+    </ul>
+
+    <div class="evidence-box">
+      <p><strong>Gap:</strong> Across all surveyed memory systems and context frameworks, none distinguish state claims from observations, and none embed verification commands in memory entries. The gap between "written" and "verified" was assumed to be the user's problem. Self-verifying memory makes it the agent's job.</p>
+    </div>
+
+    <h2>What's next</h2>
+
+    <ul>
+      <li>Broader adoption testing across projects with deployed services</li>
+      <li>Potential integration with <code>/audit-context</code> for periodic verification sweeps beyond curate</li>
+    </ul>
+
+    <h2>References</h2>
+
+    <ul>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/issues/8">Issue #8: Memory hallucination</a> — the incident that started this</li>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/issues/10">Issue #10: Self-verifying memory</a> — the design issue</li>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md">Changelog v1.9.0</a></li>
+      <li><a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/LANDSCAPE.md">Landscape analysis</a></li>
+      <li><a href="https://arxiv.org/abs/2602.11988">Gloaguen et al. — "Evaluating AGENTS.md"</a> (ETH Zurich, February 2026)</li>
+    </ul>
+  </LogEntry>
+</Base>

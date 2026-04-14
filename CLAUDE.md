@@ -4,8 +4,8 @@ Durable tools and patterns for engineers working with AI agents.
 
 - **Type**: Tool umbrella — tools, durable patterns, advisory content
 - **Status**: Active (March 2026)
-- **Flagship tool**: agent-ready-projects (v1.7.2)
-- **agent-ready-projects**: v1.7.2
+- **Flagship tool**: agent-ready-projects (v1.9.0)
+- **agent-ready-projects**: v1.9.0
 
 ## Before You Start
 
