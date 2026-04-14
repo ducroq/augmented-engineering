@@ -18,6 +18,7 @@ Durable tools and patterns for engineers working with AI agents.
 | Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
 | Working on research content | `research/README.md` — research questions and methodology |
 | Working on the guide | `guide/README.md` — pattern library structure |
+| Writing or reviewing prose | `docs/writing-guide.md` — nine-component writing system (voice, logic, tension, dialogue) |
 | Working on the website | `site/` + `docs/VIBE.md` — Astro static site, visual identity guide, `npm run dev` to preview |
 | Stuck or debugging | `memory/gotcha-log.md` — problem-fix archive |
 | Making an architectural decision | `docs/decisions/README.md` — ADR index and template |
@@ -90,7 +91,8 @@ augmented-engineering/
 ├── presentations/           # Slide decks and talk materials
 ├── docs/
 │   ├── decisions/           # ADRs — 7 decisions (index in README.md)
-│   └── VIBE.md              # Visual identity direction
+│   ├── VIBE.md              # Visual identity direction
+│   └── writing-guide.md     # Writing system — voice, logic, tension, dialogue
 ├── site/                    # Astro website (dark mode, Inter, semantic color)
 │   └── src/
 │       ├── layouts/         # Base layout
@@ -129,6 +131,7 @@ cd site && npm install && npm run dev    # Dev server at localhost:4321
 | Case study template | `case-studies/README.md` | Individual case studies |
 | Podcast strategy | `memory/project_aug_podcast_marketing.md` | Session notes |
 | Visual identity | `docs/VIBE.md` | Site CSS, component styles |
+| Writing voice & quality | `docs/writing-guide.md` | Articles, podcast scripts, case studies |
 | Strategic direction | `docs/decisions/ADR-005,006,007` | CLAUDE.md framing, site structure |
 
 ## Nine Source Projects
@@ -151,8 +154,11 @@ This repo is the synthesis layer for nine source projects. When working in a sou
 
 ## Writing Style
 
-- Pattern-first: the pattern is what matters, engineering narrative serves it
-- Practitioner-accessible: a working engineer should try the pattern Monday morning
-- Honest about failures: where agents failed matters as much as where they succeeded
-- Loosely coupled to claim registry: note evidence naturally, don't force claim IDs into every paragraph
-- No emojis unless explicitly requested
+Full writing system: `docs/writing-guide.md` — voice definition, five voice traps, essay vs. chapter rules, reader profile, logic audit, tension holding, self-reference dosing, structural checklist, dialogue quality rules.
+
+Project-specific constraints (supplement the guide):
+- **Pattern-first**: the pattern is what matters, engineering narrative serves it
+- **Practitioner-accessible**: a working engineer should try the pattern Monday morning
+- **Honest about failures**: where agents failed matters as much as where they succeeded
+- **Loosely coupled to claim registry**: note evidence naturally, don't force claim IDs into every paragraph
+- **No emojis** unless explicitly requested

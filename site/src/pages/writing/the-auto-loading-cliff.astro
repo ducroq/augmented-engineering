@@ -5,7 +5,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
 <Base title="The Auto-Loading Cliff — Augmented Engineering" description="The invisible line that determines whether your agent reads your docs or ignores them.">
   <ArticlePage
-    date="2026-04-14"
+    date="2026-03-31"
     title="The Auto-Loading Cliff"
     subtitle="The invisible line that determines whether your agent reads your docs or ignores them."
     tags={["context-engineering"]}
@@ -15,7 +15,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>This isn't a bug. It's architecture.</p>
 
-    <p>Every AI coding agent has a hard line between files it reads automatically and files that might as well not exist. Claude Code auto-loads CLAUDE.md. Cursor reads .cursorrules. Copilot reads .agent.md. Gemini CLI reads AGENTS.md. Everything else — your runbook, your ADRs, your gotcha log — is below the cliff. Invisible until something explicitly tells the agent to read it.</p>
+    <p>Every AI coding agent has a hard line between files it reads automatically and files that might as well not exist. As of early 2026: Claude Code auto-loads CLAUDE.md. Cursor reads .cursorrules. Copilot reads .agent.md. Gemini CLI reads AGENTS.md. The specifics shift with tool updates, but the cliff exists in all of them. Everything else — your runbook, your ADRs, your gotcha log — is below the cliff. Invisible until something explicitly tells the agent to read it.</p>
 
     <p>"Linked prominently" is not a trigger. The agent skims past links the way you skim past sidebar ads.</p>
 
@@ -75,7 +75,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>Once you see it, you stop writing documentation and start writing navigation. The question changes from "what should I document?" to "what does my agent need to find, and what trigger will make it look?"</p>
 
-    <p>That's a better question.</p>
+    <p>The routing table itself requires maintenance — triggers go stale, files move, the project file grows past the point where the agent reads it carefully. This article is above the cliff only because you went looking for it. Nothing in a project file triggered you to load it. That's the gap the cliff creates, even for the article describing it.</p>
 
   </ArticlePage>
 </Base>

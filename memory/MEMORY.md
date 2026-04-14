@@ -12,6 +12,7 @@
 | `memory/session_2026-03-19_podcast_launch.md` | Context on podcast creation decisions | Marathon session: memory migration, framework v1.2.0 |
 | `docs/decisions/README.md` | Making an architectural decision | ADR index — 7 decisions (podcast, site reframe, umbrella pivot) |
 | `docs/VIBE.md` | Working on site design | Visual identity: engineered, honest, practitioner-first |
+| `docs/writing-guide.md` | Writing or reviewing prose | Nine-component writing system: voice, logic, tension, dialogue |
 
 ## Recently Promoted
 
@@ -52,6 +53,7 @@
 - **agent-ready-projects v1.7.1-1.7.2** (2026-04-11): ADR template with YAML frontmatter, decision matrices, "Revisit If" triggers. YAML frontmatter added to project-file and review-agent templates. Synthesized from ADR patterns across agent-ready-papers, RenkumSpot, shared_vault. Site tool page updated with decision records section.
 - **agent-ready-projects v1.8.0** (2026-04-12): Multiplayer coordination — Layer 5. Site log entry added, engineering log section created (5 entries v1.0.0–v1.8.0).
 - **agent-ready-projects v1.9.0** (2026-04-14): Self-verifying memory — agents embed verification commands in state claims. Site log entry added, homepage updated (version badge, feature highlight, log list). Landscape updated with Superpowers (151K+ stars). 10 test fixtures for curate verification protocol.
+- **Writing guide adopted** (2026-04-14): Nine-component writing system placed at `docs/writing-guide.md`. Originated from satirical essay project, adapted for Augmented Engineering. Placeholders filled with project voice (DO/DON'T table, flag table, reader profile). Calibration examples use actual article excerpts. CLAUDE.md, VIBE.md updated to reference it. All six writing articles audited against the guide and revised — self-implication beats added to every article, counter-evidence acknowledged, closings revised to hold tension.
 
 ## Related Repos — Quick Reference
 

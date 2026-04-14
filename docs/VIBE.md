@@ -53,7 +53,7 @@ No decorative color. No gradients. No colored backgrounds for sections.
 
 ## Voice (Design Complement)
 
-The writing voice is already right. The design should match it:
+The full writing system lives in `docs/writing-guide.md`. The design should match these core voice properties:
 
 - **Direct.** Lead with the answer, not the context.
 - **Evidence-visible.** Show the data that supports the claim, don't just assert.

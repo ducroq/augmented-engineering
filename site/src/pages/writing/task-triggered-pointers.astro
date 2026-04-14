@@ -5,7 +5,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
 <Base title="Task-Triggered Pointers — Augmented Engineering" description="The one-line change that makes agents actually read your docs.">
   <ArticlePage
-    date="2026-04-14"
+    date="2026-04-07"
     title="Task-Triggered Pointers"
     subtitle="The one-line change that makes agents actually read your docs."
     tags={["context-engineering"]}
@@ -70,7 +70,9 @@ Works:
 
     <p>Not every file needs a task-triggered pointer. Files that are auto-loaded (your project file, your memory index) don't need triggers — they're always present. Files that are only relevant during periodic curation don't need triggers in the project file — the curate skill handles that.</p>
 
-    <p>Task-triggered pointers are for the gap: files that live below the auto-loading cliff and contain context the agent needs for specific tasks. If you're not sure whether a file needs a pointer, wait until an agent misses it. Then add the trigger.</p>
+    <p>Task-triggered pointers are for the gap: files that live below the auto-loading cliff and contain context the agent needs for specific tasks. They're not magic — triggers can be too vague to match, too stale to be useful, or ignored when the context window is already full. The table itself needs tending.</p>
+
+    <p>If you're not sure whether a file needs a pointer, wait until an agent misses it. Then add the trigger. And notice: this article is itself a task-triggered pointer. You're reading it because something made it relevant right now — not because a project file told you it existed.</p>
 
   </ArticlePage>
 </Base>

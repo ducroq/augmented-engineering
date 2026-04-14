@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticlePage from '../../components/ArticlePage.astro';
+---
+
+<Base title="Auditing Cognitive Debt — Augmented Engineering" description="You can't eliminate cognitive debt. But you can see how much you're carrying.">
+  <ArticlePage
+    date="2026-04-14"
+    title="Auditing Cognitive Debt"
+    subtitle="You can't eliminate cognitive debt. But you can see how much you're carrying."
+    tags={["verification", "cognitive-debt"]}
+  >
+
+    <h2>The Shift</h2>
+
+    <p>Marcel Rijnsburger <a href="https://www.linkedin.com/pulse/how-ai-changes-economy-thinking-marcel-rijnsburger-kf6ve/">argues</a> that AI changes which thinking is scarce. Searching, summarizing, drafting: now cheap. Judgment, validation, original insight: still expensive. Scarcity moves upward.</p>
+
+    <p>He names four types of debt that accumulate when output outpaces understanding:</p>
+
+    <ul>
+      <li><strong>Cognitive debt</strong>: relying on outputs you don't fully understand</li>
+      <li><strong>Epistemic debt</strong>: weakened reasoning transparency</li>
+      <li><strong>Governance debt</strong>: expansion outpacing controls</li>
+      <li><strong>Cognitive sovereignty debt</strong>: dependency on external model logic</li>
+    </ul>
+
+    <p>Useful framing. AI makes production cheap. Understanding stays expensive. The distance between them is debt.</p>
+
+    <h2>The Honest Problem</h2>
+
+    <p>We can't solve this. Not fully.</p>
+
+    <p>An agent produces ten scenarios in an afternoon. You verify eight. The other two are the ones you didn't understand well enough to question. You don't know how much risk they carry.</p>
+
+    <p><a href="/augmented-engineering/patterns/layer-your-verification">Layered verification</a> and <a href="/augmented-engineering/writing/self-verifying-memory">self-verifying memory</a> reduce the blast radius. They don't close the gap. Production scales with compute. Understanding scales with human attention.</p>
+
+    <p>So the question is not "how do we pay off cognitive debt?" It's: <strong>how do we see how much we're carrying?</strong></p>
+
+    <h2>A Debt Ledger</h2>
+
+    <p>We wrote an article about AI agent readiness. Before publishing, we ran every verifiable statement through a claim registry:</p>
+
+    <table>
+      <thead>
+        <tr><th>ID</th><th>Statement</th><th>Type</th><th>Priority</th><th>Confidence</th><th>Source Tier</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>S2-3</td><td>LLM-generated context files reduced success by 3%</td><td>CLAIM</td><td>P0</td><td>ESTABLISHED</td><td>A (peer-reviewed)</td></tr>
+        <tr><td>S5-1</td><td>No surveyed framework addresses multi-user coordination</td><td>ARGUMENT</td><td>P0</td><td>SUPPORTED</td><td>D (web research)</td></tr>
+        <tr><td>S1-6</td><td>Markdown is how LLMs were trained to understand structure</td><td>CLAIM</td><td>P2</td><td>SUPPORTED</td><td>F (general knowledge)</td></tr>
+      </tbody>
+    </table>
+
+    <p>Read this as a balance sheet, not a checklist.</p>
+
+    <ul>
+      <li><strong>Priority</strong> is exposure. P0 at low confidence means high-risk debt.</li>
+      <li><strong>Confidence</strong> is coverage. ESTABLISHED: mostly paid. SUPPORTED: still carrying. EMERGING: leveraged.</li>
+      <li><strong>Source Tier</strong> is collateral. Peer review (A) is solid. "General knowledge" (F) is unsecured.</li>
+      <li><strong>Type</strong> sets the audit. A CLAIM gets source-checked. An ARGUMENT needs structural verification: is the reasoning valid, not just the data?</li>
+    </ul>
+
+    <h2>What the Audit Found</h2>
+
+    <p>27 claims in a 2,400-word article. Three wrong.</p>
+
+    <p>A test count off by 8. Stale data from an earlier agent session. An MCP claim stretched for rhetoric. An oversimplification about LLM training that sounded right but wasn't. (Full story: <a href="https://github.com/ducroq/agent-ready-projects/blob/master/docs/verifying-what-we-write.md">Verifying What We Write</a>.)</p>
+
+    <p>None were hallucinations. All were almost-right output that reads well and passes casual review. That is what cognitive debt looks like: not spectacular failure, but silent confidence erosion.</p>
+
+    <p>The registry caught them by forcing three questions per statement:</p>
+
+    <ol>
+      <li>What type is this? Fact, reasoning, or recommendation. Each verified differently.</li>
+      <li>How confident should I be? Not how confident do I feel. What does the evidence support?</li>
+      <li>Does the source actually say this? Not "does a source exist."</li>
+    </ol>
+
+    <p>Fifteen minutes of registry work. Forty minutes of source checking. Three corrections.</p>
+
+    <h2>Invisible vs. Visible</h2>
+
+    <p>The registry doesn't eliminate cognitive debt. We still carry debt on claims backed by web research that could go stale, on arguments whose rebuttals we may have underweighted. The registry itself takes time — fifteen minutes to type claims, forty to source-check — and confidence rating is partly subjective. Two reviewers will rate the same claim differently.</p>
+
+    <p>But we can see it. We know which claims are high-priority and low-confidence. We know which sources are weak. We know where arguments depend on temporal qualifiers that will expire.</p>
+
+    <p>This article is itself carrying cognitive debt. Its claims about the registry's effectiveness are backed by one audit of one article. That's honest reporting, not proof. Read them accordingly.</p>
+
+    <p>Knowing you have a loan versus not knowing. Both are debt. Only one is manageable.</p>
+
+    <h2>For Teams</h2>
+
+    <p>Solo practitioners carry personal cognitive debt. They know what they skimmed, what they verified, what they took on faith. In a team, that awareness gets lost. The second person to read AI-generated analysis doesn't know which parts the first person checked.</p>
+
+    <p>A claim registry attached to a deliverable fixes this. Not "this document was reviewed." Instead: "27 claims checked, 3 corrected, 2 still at SUPPORTED with web-research backing." The debt is on the books.</p>
+
+    <p>Rijnsburger is right that organizations need to redesign for abundance. Part of that redesign is accounting for the debt abundance creates.</p>
+
+    <h2>The Minimum</h2>
+
+    <p>Not a solution. A minimum.</p>
+
+    <ol>
+      <li><strong>Type your claims.</strong> Fact, argument, or recommendation. Each carries different debt.</li>
+      <li><strong>Prioritize by exposure.</strong> Know which claims collapse your argument if wrong.</li>
+      <li><strong>Rate confidence honestly.</strong> ESTABLISHED, SUPPORTED, or EMERGING. Map to language so readers see what debt they inherit.</li>
+      <li><strong>Show source strength.</strong> A peer-reviewed paper and a blog post are not equivalent collateral.</li>
+      <li><strong>Make the ledger visible.</strong> Attach it. The next person needs to know what's verified and what isn't.</li>
+    </ol>
+
+    <p>You will carry cognitive debt. Every team using AI output will. The question is whether you know it, or whether Monday morning brings a surprise.</p>
+
+  </ArticlePage>
+</Base>
