@@ -27,11 +27,11 @@ Works:
 
     <p>The second is a task-triggered pointer — it gives the agent a condition to match against. If the agent is deploying (or about to deploy, or touching deployment config), the trigger fires. If not, the file stays unloaded. Both outcomes are correct.</p>
 
-    <h2>Why It Works</h2>
+    <h2>Why It Works (Best Guess)</h2>
 
-    <p>LLMs are good at matching situations to instructions. "When X, do Y" is a pattern they handle reliably. "See X" is a suggestion they handle inconsistently.</p>
+    <p>"When X, do Y" is a pattern LLMs seem to handle reliably. "See X" is a suggestion they handle inconsistently. I don't have a clean mechanistic story for why the gap is this stark — the training-data explanation is plausible but I haven't verified it.</p>
 
-    <p>The difference is relevance signaling. A descriptive pointer says "this exists." A task-triggered pointer says "this is relevant <em>now</em>, given what you're doing." The agent doesn't need to judge whether a file is worth loading — the trigger makes that judgment for it.</p>
+    <p>What the two forms clearly do differently is relevance signaling. A descriptive pointer says "this exists." A task-triggered pointer says "this is relevant <em>now</em>, given what you're doing." The agent doesn't need to judge whether a file is worth loading — the trigger makes that judgment for it.</p>
 
     <h2>The Format</h2>
 

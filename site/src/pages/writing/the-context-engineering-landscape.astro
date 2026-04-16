@@ -15,7 +15,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>A year ago, "context engineering for AI coding agents" wasn't a category. You had vendor docs telling you features existed, a few blog posts saying "keep your CLAUDE.md short," and one rigorous analysis from Martin Fowler's site. That was it.</p>
 
-    <p>Now there are frameworks with six-figure GitHub stars, an open standard under the Linux Foundation, memory systems competing on benchmarks, linters that validate your context files, sync tools that distribute them across agents, and a growing body of empirical research measuring whether any of it works. The field is full. The most important question — what to put in these files and whether it remains true — is the one nobody's building for.</p>
+    <p>Now there are frameworks with six-figure GitHub stars, an open standard under the Linux Foundation, memory systems competing on benchmarks, linters that validate your context files, sync tools that distribute them across agents, and a growing body of empirical research measuring whether any of it works. The field is full. The question I find most important — what to put in these files and whether it remains true — is one few of the tools I surveyed seem to be building for. If I've missed a project working on it, I'd want to know.</p>
 
     <h2>The Frameworks</h2>
 
@@ -112,13 +112,13 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>With all this activity, what's nobody building?</p>
 
-    <p><strong>Content guidance.</strong> The entire context tooling category (linters, sync tools, optimizers) handles format and distribution. Nobody addresses what should be in the files. AgentLinter tells you your CLAUDE.md has structural issues — it doesn't tell you what to write instead. The ETH Zurich study shows this matters: bad content actively hurts. But "what to write in your AGENTS.md" remains unaddressed by any tool.</p>
+    <p><strong>Content guidance.</strong> The context tooling category I surveyed (linters, sync tools, optimizers) handles format and distribution. None of them I found address what should be in the files. AgentLinter tells you your CLAUDE.md has structural issues — it doesn't tell you what to write instead. The ETH Zurich study shows this matters: bad content actively hurts. "What to write in your AGENTS.md" may be addressed by a project I haven't found, but I haven't found one.</p>
 
-    <p><strong>Memory verification.</strong> Every memory system optimizes recall. None verify truth. A memory entry that says "deployed to production" will be faithfully retrieved months after the deployment was rolled back. LoCoMo and LongMemEval don't test for this. As agents rely more on externalized memory, this becomes a real problem.</p>
+    <p><strong>Memory verification.</strong> Every memory system I looked at optimizes recall. I haven't found one that verifies truth. A memory entry that says "deployed to production" will be faithfully retrieved months after the deployment was rolled back. LoCoMo and LongMemEval don't test for this. If agents keep relying more on externalized memory, this starts to matter.</p>
 
-    <p><strong>Multi-user coordination.</strong> Multi-agent orchestration (CrewAI, LangGraph, AutoGen, OpenAI Agents SDK) solves one person coordinating multiple AI agents. Nobody addresses multiple people, each with their own agent, working in the same codebase. Security is covered (OWASP Top 10, Microsoft Agent Governance Toolkit). Team coordination is not.</p>
+    <p><strong>Multi-user coordination.</strong> Multi-agent orchestration (CrewAI, LangGraph, AutoGen, OpenAI Agents SDK) solves one person coordinating multiple AI agents. I haven't seen a tool that addresses multiple people, each with their own agent, working in the same codebase. Security is covered (OWASP Top 10, Microsoft Agent Governance Toolkit). Team coordination doesn't seem to be.</p>
 
-    <p><strong>Session strategy.</strong> When to start a fresh session. Why reviewing in the building session is a bad idea. How to use cross-model validation. No guide, framework, or tool addresses this.</p>
+    <p><strong>Session strategy.</strong> When to start a fresh session. Why reviewing in the building session is a bad idea. How to use cross-model validation. I haven't found a guide, framework, or tool that addresses this — but "haven't found" is not "doesn't exist."</p>
 
     <h2>What It Means for Practitioners</h2>
 
@@ -132,7 +132,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
       <li><strong>Watch the tooling.</strong> Context linters and rule sync tools are young but useful. ctxlint catching stale references automatically is worth more than a quarterly manual audit.</li>
     </ol>
 
-    <p>The field is maturing fast. A year ago, the question was "should I create a CLAUDE.md?" Now the question is "what should I put in it and how do I keep it accurate?" That's progress — but the hardest part of that question (content guidance, memory truth, team coordination) is exactly where the tooling stops and the practitioner is on their own.</p>
+    <p>The field is maturing fast. A year ago, the question was "should I create a CLAUDE.md?" Now the question is "what should I put in it and how do I keep it accurate?" That's progress — though the part of that question I still find hardest (content guidance, memory truth, team coordination) is where, as far as I can tell, the tooling stops and the practitioner is on their own.</p>
 
   </ArticlePage>
 </Base>

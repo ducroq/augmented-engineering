@@ -23,6 +23,8 @@ Build two columns. Be specific. Generalities ("professional but approachable") p
 | Evidence-visible -- show the data, don't just assert | A framework vendor selling a system |
 | Honest about scope -- limitations stated plainly | Marketing copy ("revolutionary," "game-changing," "unlock") |
 | Someone at a dinner party, not on a stage | An academic hedging everything into irrelevance |
+| Curious -- still interested in the questions the piece raises | Verdict-delivering -- treating the author's current understanding as settled |
+| Intellectually humble -- the model is provisional, and the writing knows it | Authoritative -- positions the author disagrees with get dismissed, not understood |
 
 ### Flag Table
 
@@ -101,6 +103,33 @@ This project uses first person selectively. The rule: use "I" when the personal 
 | "We wrote an article. Before publishing, we ran every statement through a claim registry." | "27 claims. Three wrong." |
 
 The test: remove the "I" or "we." If the sentence loses honesty or self-implication, put it back. If it just loses a word, leave it out.
+
+### The Curious-Humble Stance
+
+The guide's emphasis on directness has a failure mode: treating the author's current understanding as settled when it isn't. The correction is not to hedge more. It's to write from a stance of open curiosity and intellectual humility -- and to make that stance visible in the prose.
+
+What it looks like in practice:
+
+- The author's model is provisional, and the writing says so when it matters
+- Positions the author disagrees with get steelmanned before they get answered
+- "I don't know yet" is a legitimate move -- not throat-clearing, but honest uncertainty about something the piece couldn't resolve
+- The piece still seems interested in its own questions at the end, not done with them
+- The best reader response is "I want to think about this," not "I agree"
+
+This is not the opposite of directness. It's directness about what the author does and doesn't know. Skepticism is still not wishy-washiness (see Allowances). A confident observation, honestly scoped, is more humble than a hedged one.
+
+**Calibration:**
+
+Too certain:
+> "Task-triggered pointers are the pattern. Descriptive links don't work."
+
+Too hedged:
+> "Task-triggered pointers may sometimes improve agent behavior, though more research would be needed to confirm this across tools and project structures."
+
+Curious-humble:
+> "Descriptive links keep failing. Task-triggered pointers keep working. I'm not sure why the gap is so stark -- best guess is that agents skim descriptions the way readers skim headers. Worth testing on your own stack before trusting the pattern."
+
+**The test:** Does the piece read like it's still asking a question the author cares about? Or does it read like a verdict?
 
 ---
 

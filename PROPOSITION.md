@@ -6,13 +6,13 @@
 
 ## The Familiar Foundation (Brief)
 
-Nine engineering projects built with AI agents over 2025-2026 confirm what you'd expect: established engineering principles still work. V&V catches defects. Decomposition beats monoliths. Risk classification focuses effort. Feedback loops improve quality. Configuration separates what changes from what doesn't. None of this is surprising, and none of it requires elaboration for a working engineer.
+Nine engineering projects built with AI agents over 2025-2026 confirm what you'd expect: established engineering principles still work. V&V catches defects. Decomposition beats monoliths. Risk classification focuses effort. Feedback loops improve quality. Configuration separates what changes from what doesn't. Most of this isn't surprising — though "transfers directly" was itself something worth checking, and checking it is part of how this document earned the right to move on.
 
 The more interesting question is: **what did we encounter that existing principles didn't prepare us for?**
 
 ---
 
-## Four Things That Are Actually New
+## Four Things That Appear Genuinely New
 
 ### 1. Learn the Material: LLM Behavioral Properties
 

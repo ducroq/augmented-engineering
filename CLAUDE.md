@@ -60,6 +60,7 @@ Durable tools and patterns for engineers working with AI agents.
 ```
 augmented-engineering/
 ├── PROPOSITION.md           # Core argument — read first (ground truth for the four patterns)
+├── PROPOSITION-vmodel-reposition.md  # Draft: connecting Digital Engineer research to patterns (parked)
 ├── REVIEW-SYNTHESIS.md      # Critical reviews from 6 perspectives
 ├── CHEATSHEET.md            # Practitioner-friendly decision rules
 ├── case-studies/            # Five case studies (pattern-first, own projects)
@@ -89,6 +90,7 @@ augmented-engineering/
 │   ├── productie/           # Production pipeline
 │   └── onderzoek/           # Research material
 ├── presentations/           # Slide decks and talk materials
+├── agent-instructions/      # Reusable .agent.md instruction files (EVDK examples)
 ├── docs/
 │   ├── decisions/           # ADRs — 7 decisions (index in README.md)
 │   ├── VIBE.md              # Visual identity direction
@@ -96,8 +98,13 @@ augmented-engineering/
 ├── site/                    # Astro website (dark mode, Inter, semantic color)
 │   └── src/
 │       ├── layouts/         # Base layout
-│       ├── components/      # Pattern page template
-│       └── pages/           # Landing, 4 patterns, tool page with Mermaid
+│       ├── components/      # Pattern page + article page templates
+│       └── pages/
+│           ├── index.astro  # Landing
+│           ├── patterns/    # 4 pattern pages
+│           ├── tools/       # agent-ready-projects tool page (Mermaid walkthrough)
+│           ├── writing/     # 6 articles (auto-loading cliff, task-triggered pointers, etc.)
+│           └── log/         # Engineering log (agent-ready-projects release notes)
 ├── .claude/
 │   ├── agents/              # Review agents (7 core + 8 podcast personas)
 │   └── skills/curate/       # End-of-session curation skill

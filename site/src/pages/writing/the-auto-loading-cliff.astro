@@ -15,7 +15,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>This isn't a bug. It's architecture.</p>
 
-    <p>Every AI coding agent has a hard line between files it reads automatically and files that might as well not exist. As of early 2026: Claude Code auto-loads CLAUDE.md. Cursor reads .cursorrules. Copilot reads .agent.md. Gemini CLI reads AGENTS.md. The specifics shift with tool updates, but the cliff exists in all of them. Everything else — your runbook, your ADRs, your gotcha log — is below the cliff. Invisible until something explicitly tells the agent to read it.</p>
+    <p>Every AI coding agent I've worked with has a hard line between files it reads automatically and files that might as well not exist. As of early 2026: Claude Code auto-loads CLAUDE.md. Cursor reads .cursorrules. Copilot reads .agent.md. Gemini CLI reads AGENTS.md. The specifics shift with tool updates, but the cliff has been present in every tool I've tested — if a tool exists without one, I'd be curious to see it. Everything else — your runbook, your ADRs, your gotcha log — is below the cliff. Invisible until something explicitly tells the agent to read it.</p>
 
     <p>"Linked prominently" is not a trigger. The agent skims past links the way you skim past sidebar ads.</p>
 
@@ -44,7 +44,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
     <p>The implication for documentation design:</p>
 
     <ol>
-      <li><strong>Keep the project file short.</strong> Every line competes for attention. ~100 lines is a practical ceiling. If you're over 200, the agent is skimming, not reading.</li>
+      <li><strong>Keep the project file short.</strong> Every line competes for attention. ~100 lines has worked as a practical ceiling in my own projects; past 200, the agent seems to skim rather than read. These numbers are rules of thumb, not measurements — your mileage may vary by tool and model.</li>
       <li><strong>Push detail below the cliff.</strong> Operational procedures, historical context, architectural decisions — all belong in separate files. The project file points to them.</li>
       <li><strong>Use task-triggered pointers, not descriptive links.</strong> The "Before You Start" table in your project file should map tasks to docs, not topics to docs.</li>
     </ol>
@@ -73,7 +73,7 @@ import ArticlePage from '../../components/ArticlePage.astro';
 
     <p>The auto-loading cliff is a consequence of how LLM context windows work: limited space, automatic injection of some files, manual loading of everything else. Every tool handles it slightly differently, but the cliff exists in all of them.</p>
 
-    <p>Once you see it, you stop writing documentation and start writing navigation. The question changes from "what should I document?" to "what does my agent need to find, and what trigger will make it look?"</p>
+    <p>Once I noticed it, the question I was asking changed. Not "what should I document?" but "what does my agent need to find, and what trigger will make it look?" Whether that reframe will hold up as tools change is an open question.</p>
 
     <p>The routing table itself requires maintenance — triggers go stale, files move, the project file grows past the point where the agent reads it carefully. This article is above the cliff only because you went looking for it. Nothing in a project file triggered you to load it. That's the gap the cliff creates, even for the article describing it.</p>
 
