@@ -5,7 +5,7 @@
      Every factual claim, argument, and proposition tracked here. -->
 
 **Project:** Augmented Engineering
-**Last Updated:** 2026-03-17
+**Last Updated:** 2026-05-04
 **Thesis:** Agentic AI becomes powerful in engineering when we build structured feedback loops that let agents improve each other — with the engineer firmly in the loop.
 
 ---
@@ -90,7 +90,7 @@
 
 | ID | Statement | Type | Priority | Confidence | Source | Source Tier | Status |
 |----|-----------|------|----------|------------|--------|-------------|--------|
-| E-1 | Mechanical equation verification (reproduce-don't-assess) catches numerical errors that plausibility-based LLM review misses: 5/5 errors caught in formal docs + 5/5 in informal messages (driven-pendulum) that standard review missed | CLAIM | P1 | SUPPORTED | OWN WORK: driven-pendulum equation-checker audit; agent-ready-papers driven-pendulum-retrofit audit; 2026-03-16 WhatsApp message V&V (5 errors in informal comms) | E | [x] |
+| E-1 | Mechanical equation verification (reproduce-don't-assess) catches numerical errors that plausibility-based LLM review misses, and the pattern compounds when extended to cross-document / dimensional / estimation / two-paths layers — each new specialised layer catches errors the previous layers cannot, by structurally different scope | CLAIM | P1 | SUPPORTED | OWN WORK: driven-pendulum equation-checker audit (5 errors); 2026-03-16 WhatsApp message V&V (5 errors in informal comms); 2026-05-04 four new physics-verification templates applied to same project, ~25 issues across ~115 checks, including the template detecting its own motivating error class reproduced inside the theory chapter set (Ch 10 reproduces v2-doc scope error) — see case-studies/driven-pendulum.md §8 and issue #18 | E | [x] |
 | E-2 | Multi-agent requirements review (vmodel.eu) achieves ≥80% within-1 agreement with human grading on a 64-report blind validation set | CLAIM | P1 | SUPPORTED | OWN WORK: vmodel.eu held-out validation | E | [x] |
 | E-3 | AI-augmented design review (OPAL) produced 14 discipline-specific checklists totaling 725 items, covering disciplines beyond the lead engineer's expertise | CLAIM | P1 | ESTABLISHED | OWN WORK: OPAL design_review_checklists/ — directly verifiable in repo | E | [x] |
 

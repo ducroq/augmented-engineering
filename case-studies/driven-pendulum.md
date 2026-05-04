@@ -146,3 +146,104 @@ This is evidence for claims C-1/C-2: domain expertise catches errors that formal
 ### agent-ready-projects adoption
 
 The project adopted the agent-ready-projects v1.0.0 framework during this session, creating CLAUDE.md (Layer 1), RUNBOOK.md (Layer 2), and gotcha-log.md (Layer 4). This provided immediate structure for the curation loop. Five operational patterns were fed back as [issue #1](https://github.com/ducroq/agent-ready-projects/issues/1).
+
+---
+
+## 8. Session Update: 2026-05-04 — Layered V&V Compounds
+
+### Trigger
+
+The day before (2026-05-03), a simulation-findings document recommended a Hall sensor to the stakeholder based on a bare-pendulum + EM Python simulator. The recommendation was wrong: the application is a working mechanical clock + EM, where the escapement self-sustains amplitude and EM only needs to phase-lock — exactly the injection-locking scenario the project's own `docs/theory/03_synchronization.md` had already framed. The sim was internally consistent. The theory was internally consistent. No verification check examined the two together.
+
+The error class is *"structurally correct simulation conclusion promoted to application advice without re-anchoring to deployment scenario."* The existing `equation-checker.md` template would not catch it — the equations were fine. No template existed for the class.
+
+### Response: build the missing layers, smoke-test against the artifact that motivated them
+
+In one day, two new template families were added — physics-verification (theory-side) in `agent-ready-papers` (`33eecdc`) and physics-tests (code-side) in `agent-ready-projects` (`89dde90`) — synthesised from physics-teaching tradition (Polya, Feynman), Mahajan-style estimation, ASME V&V 10/20/40, Roache MMS, and Lean formal verification.
+
+The next day (2026-05-04), all four theory-side templates were applied to the driven-pendulum doc set as a smoke test. ~115 individual checks, ~25 distinct issues surfaced.
+
+### Headline finding
+
+**The new `cross-document-consistency.md` template caught the v2-doc failure mode reproduced inside the theory chapter set itself.** Ch 10 (the simulation chapter) describes 5 sim models, none of which include the escapement / self-sustaining-drive term that Ch 03's injection-locking framework requires. Yet Ch 10's experiments are tagged as validating predictions T-03.x (lock acquisition, lock range, 30-day stability). Executing Ch 10 as written would re-run the v2-doc class of error — a bare-pendulum sim presented as validation of a clock+EM theory.
+
+This is exactly the failure mode the template was built to detect. The template caught its own motivating error class, recursively, in the artifact next door — first positive evidence that the family closes the gap it was designed for.
+
+### Layered V&V compounds — each new layer caught what previous layers missed
+
+| Layer | When | New errors found | Missed by which previous layer |
+|-------|------|------------------|--------------------------------|
+| Plausibility review (Claude self / Gemini) | 2026-03 | 0 | — |
+| equation-checker (mechanical reproduction) | 2026-03 | 5 (arithmetic) | Plausibility — looks right |
+| WhatsApp message V&V | 2026-03-16 | 5 (units, terminology, formula structure) | Plausibility — informal context |
+| 6-agent parallel review | 2026-03-16 | 14 (cross-cutting structural) | Single-pass review |
+| `cross-document-consistency.md` | 2026-05-04 | 4 HIGH (Ch 10 reproduces v2-doc error; FR-07 contradiction; ε downstream) + 8 MEDIUM | equation-checker — per-document scope only |
+| `dimensional-checker.md` | 2026-05-04 | 8 HIGH (EQ-12 force-not-power; PI controller term mismatch; EQ-58 tempco) + 5 cross-section symbol drifts | equation-checker — only checks numeric examples |
+| `estimation-checker.md` | 2026-05-04 | Pinpointed Ch 04 §4.2.3 ×100 error from Ch 04's *own* parameters; Config W BOM internally inconsistent | All previous — these are scaling expressions with no numeric example to reproduce |
+| `two-paths-consistency.md` | 2026-05-04 | Ch 03 §3.3.2 "two paths to 14.4 min/day" are circular | All previous — looks like cross-validation, isn't |
+
+Each row added new findings the previous rows could not have caught — not because the previous layer was bad, but because each layer has a structurally different scope. Plausibility review reasons. Mechanical reproduction substitutes. Cross-document checks scope. Dimensional checks units. Estimation reproduces with the doc's own inputs. Two-paths-consistency catches cross-validations that aren't.
+
+The OPAL case study (in `PROPOSITION.md`) showed five verification layers each finding different defects in a one-shot review. This session shows the same pattern unfolding *over time* on a single project — and, more importantly, that **building the next layer is now cheap enough to do the same week the gap is identified**.
+
+### A textbook reproduce-don't-assess example, sharpened
+
+The `cross-document-consistency` check found a 200× discrepancy between Ch 04 §4.2.3 ("0.17 mN at 22.5 mm c-t-c") and `prototype_v0.md` ("35–64 mN at 15 mm c-t-c") but did not adjudicate which side was wrong.
+
+The `estimation-checker` did, in five lines:
+
+1. EQ-26 prefactor $3\mu_0/(2\pi) \sim 6\times 10^{-7}$
+2. With Ch 04's stated $m_{\rm perm} = 0.4$ A·m², $m_{\rm coil} = 0.019$ A·m²: numerator $\sim 8\times 10^{-3}$
+3. At x = 22.5 mm: $x^4 \sim 2.6\times 10^{-7}$
+4. F ~ $6\times 10^{-7} \cdot 8\times 10^{-3} / 2.6\times 10^{-7} \sim 18$ mN
+5. Ch 04's own table says 0.17 mN — 100× under-estimate.
+
+Plugging the doc's own numbers into the doc's own equation gave 18 mN, not 0.17 mN. Localisation: the error is in Ch 04 §4.2.3 (table arithmetic), not in EQ-26. Downstream: Ch 04's framing "EM force is 0.04% of restoring force" understates by 100× — the actual figure is ~4%, comfortable for ε ≈ 0.02 sync.
+
+This is reproduce-don't-assess applied to *forensic localisation*: the check that adjudicates between two conflicting claims is to reproduce one of them with that claim's own stated inputs. It worked in five lines. The 200× drift had been live in the doc set for weeks.
+
+### Calibration evidence (the templates also confirmed what they should have)
+
+Not every finding was a bug. The templates produced 13 explicit OK results that mattered:
+
+- **Sensor optionality is consistent across all current docs** (open-loop = optional, closed-loop = required). The v2-doc retraction had propagated correctly through Ch 01, Ch 05, Ch 08, the stakeholder summary, and the prototype plan.
+- **Geometry A decision (ADR-001) propagated cleanly** through Ch 04, Ch 09, theory_summary.
+- **Hodzelmans Geometry-B pulse-width caveat correctly applied** in Ch 05 (the CLAUDE.md "never transfer validation data between geometries" hard constraint was being obeyed).
+- **EQ-26 / EQ-26c prefactor (½ ratio between coaxial and broadside) symbolically verified** from the dipole-dipole potential.
+- **All Adler-equation limits (ε → 0, Δω → 0) satisfied.**
+
+This is calibration: a template that finds nothing in a known-clean chapter earns trust by failing to false-positive. The summary tables in the verification reports surface OK findings as a top-level section, not just buried noise — a template-feedback suggestion fed back to `agent-ready-papers#5`.
+
+### Forward step: scope-domain registry for the new sim
+
+The proactive sibling to `cross-document-consistency` is `scope-domain-registry.md`: declare the model's scope upfront, then check claims against it mechanically. A registry entry was written *before* the new clock+EM simulator is implemented (`driven-pendulum/sim/scope/pendulum_clock.md`) — declaring INCLUDES (escapement, Geometry A, fixed and sensor-triggered pulse modes), EXCLUDES (Geometry B, multi-pendulum coupling, eddy currents, mainspring detail), regime of validity, and 5 OPEN_SCOPE questions to resolve before implementation. The registry is the contract the future sim must satisfy. If executed properly, this prevents the v2-doc class of error structurally — the next sim cannot be applied outside scope without the verification agent flagging it.
+
+### What this updates
+
+| Artifact | Update |
+|---|---|
+| Case-study driven-pendulum (this file) | This Section 8. |
+| `claim-registry.md` E-1 | Source field extended with 2026-05-04 evidence: 4 templates, ~25 issues across ~115 checks. |
+| Issue in this repo | Filed as evidence-tracking entry (see Evidence issue list). |
+| `agent-ready-papers#5` | Smoke-test report posted with template-feedback suggestions. |
+| `agent-ready-projects#13` | Awaiting smoke test — deferred until new clock+EM sim exists. |
+
+### Implication for the proposition
+
+The driven-pendulum case study originally supported one pattern: "reproduce, don't assess" (mechanical reproduction beats plausibility review). This session strengthens it from a stand-alone pattern to a member of a layered family — *each verification layer with a structurally different scope catches what the previous layer cannot*, and **building each new layer is now cheap enough to do the same week the gap is identified**. The proposition's "Verification Became Cheap Enough to Layer" thesis (currently anchored to OPAL's static 5-layer review) gains a temporal/iterative axis from this session: layers can be added in response to specific failures, validated against the artifact that motivated them, and produce results within a single working day.
+
+The recursion is the strongest evidence: the template caught its own motivating error class reproduced in the theory chapter set next door.
+
+### Cross-references
+
+Verification reports archived in driven-pendulum repo (commit `e1bdd32`):
+- `docs/cross_document_consistency_2026-05-04.md` — 28 checks, 15 issues, 13 OK
+- `docs/dimensional_check_2026-05-04.md` — ~78 equation checks, ~18 issues
+- `docs/estimation_limiting_twopaths_2026-05-04.md` — 19 checks, 5 NEW findings + corroboration
+
+Forward-looking artifact (commit `d1fbe7a`):
+- `sim/scope/pendulum_clock.md` — scope-domain registry for the planned clock+EM sim
+
+Cross-repo:
+- [agent-ready-papers#5](https://github.com/ducroq/agent-ready-papers/issues/5) — adoption-feedback issue for physics-verification family + smoke-test results posted as comment
+- [agent-ready-projects#13](https://github.com/ducroq/agent-ready-projects/issues/13) — adoption-feedback issue for physics-tests family (smoke test deferred)
