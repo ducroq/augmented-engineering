@@ -16,6 +16,7 @@ Durable tools and patterns for engineers working with AI agents.
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
 | Working on a case study | `case-studies/README.md` — template and conventions (own projects) |
 | Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
+| Tracking research/tooling not yet pattern-fit | `WATCH-LIST.md` — staging area before promotion to `examples/` |
 | Working on research content | `research/README.md` — research questions and methodology |
 | Working on the guide | `guide/README.md` — pattern library structure |
 | Writing or reviewing prose | `docs/writing-guide.md` — nine-component writing system (voice, logic, tension, dialogue) |
@@ -63,6 +64,7 @@ augmented-engineering/
 ├── PROPOSITION-vmodel-reposition.md  # Draft: connecting Digital Engineer research to patterns (parked)
 ├── REVIEW-SYNTHESIS.md      # Critical reviews from 6 perspectives
 ├── CHEATSHEET.md            # Practitioner-friendly decision rules
+├── WATCH-LIST.md            # Staging area for research/tooling not yet pattern-fit
 ├── case-studies/            # Five case studies (pattern-first, own projects)
 │   ├── README.md            # Template + conventions
 │   ├── opal.md              # Recursive V&V
