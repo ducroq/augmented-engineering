@@ -16,9 +16,9 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <a href={`${base}tools/agent-ready-projects`} class="tool-card">
       <div class="tool-header">
         <h3>agent-ready-projects</h3>
-        <span class="tool-version">v1.9.0</span>
+        <span class="tool-version">v1.10.0</span>
       </div>
-      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. <strong>New in v1.9.0:</strong> self-verifying memory — agents embed verification commands in state claims, checked automatically on read and curate. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
+      <p>Structure any project so AI agents work effectively across sessions. Layered context, task-triggered pointers, self-learning loop, decision records, YAML frontmatter, validation checklists. <strong>New in v1.10.0:</strong> session-start framework-drift check (catches projects silently falling behind), hypothesis log for provisional positions awaiting evidence, and project-file size budget in /curate. Works with Claude Code, Cursor, Copilot, Codex, Windsurf, Aider.</p>
       <p class="tool-install">Visual walkthrough with interactive diagrams.</p>
       <span class="read-more">Learn more &rarr;</span>
     </a>
@@ -125,6 +125,11 @@ const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
     <p class="section-intro">What was built, what was learned, what changed.</p>
 
     <div class="log-list">
+      <a href="https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md#v1100-2026-05-11" class="log-item">
+        <time>2026-05-11</time>
+        <span class="log-item-title">v1.10.0 — Drift detection, hypothesis log, size budget</span>
+        <span class="log-item-desc">A project ran on v1.7.0 for months, undetected. Now the framework checks itself at session start.</span>
+      </a>
       <a href={`${base}log/v1-9-0-self-verifying-memory`} class="log-item">
         <time>2026-04-14</time>
         <span class="log-item-title">v1.9.0 — Self-verifying memory</span>

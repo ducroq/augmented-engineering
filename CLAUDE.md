@@ -4,13 +4,14 @@ Durable tools and patterns for engineers working with AI agents.
 
 - **Type**: Tool umbrella — tools, durable patterns, advisory content
 - **Status**: Active (March 2026)
-- **Flagship tool**: agent-ready-projects (v1.9.0)
-- **agent-ready-projects**: v1.9.0
+- **Flagship tool**: agent-ready-projects (v1.10.0)
+- **agent-ready-projects**: v1.10.0
 
 ## Before You Start
 
 | When | Read |
 |------|------|
+| Starting any session | Compare the `agent-ready-projects: vX.Y.Z` line in this file's header against `C:/local_dev/agent-ready-projects/CHANGELOG.md` (local clone) or https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md. If the project is behind the latest released version, briefly surface the drift to the user before starting work. Don't auto-update — adopting changes is the engineer's call. |
 | Understanding the core argument | `PROPOSITION.md` — the four patterns and what's genuinely new |
 | Reviewing critical feedback | `REVIEW-SYNTHESIS.md` — six reviews + priority action plan |
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
