@@ -13,6 +13,7 @@ Significant choices between approaches, with context, consequences, and alternat
 | [ADR-005](ADR-005-umbrella-not-proposition.md) | Accepted | Augmented Engineering is a tool umbrella, not a research proposition |
 | [ADR-006](ADR-006-only-durable-patterns.md) | Accepted | Only structural (durable) patterns are core; model-dependent ones are advisory |
 | [ADR-007](ADR-007-umbrella-follows-tools.md) | Accepted | Don't build the umbrella ahead of the tools |
+| [ADR-008](ADR-008-one-front-merge-with-tandemize.md) | Proposed | Merge to one front with `tandemize.ai` (brand overlap); terms pending an ownership talk with Arian |
 
 ## When to Write an ADR
 
