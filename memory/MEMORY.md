@@ -88,7 +88,7 @@
 - Show notes with claim verification live in `podcast/shownotes/`
 - Review agents (8 personas + orchestrator) live in `.claude/agents/ae-review-*.md`
 - ADR-001 (dialogue writing style for local TTS) lives in podcast-generator: `docs/decisions/`
-- Digital Engineers research (`C:\Users\scbry\OneDrive - HAN\Research\Digital engineers\`) is the source for podcast stats — extraction report produced with ~30 findings mapped to episodes
+- Digital Engineers research (local, outside this repo) is the source for podcast stats — extraction report produced with ~30 findings mapped to episodes
 
 ## Active Decisions
 
