@@ -6,7 +6,7 @@ shelf_life: 12-24m
 sources:
   - "Shaw & Nave (2026), Thinking—Fast, Slow, and Artificial: How AI is Reshaping Human Reasoning and the Rise of Cognitive Surrender. SSRN 6097646, v20260111. Preprint, NOT peer-reviewed. Preregistered; materials on OSF."
   - "Infographic 'Beyond Fast and Slow Thinking' (Center for Behavioral Decisions), seen via social media 2026-10 — derivative, use the paper"
-feeds: Layer Your Verification; Learn the Material; C-1, C-2 (human oversight)
+feeds: Layer Your Verification; Learn the Material; C-1, C-2 (human oversight). Paper card belongs in ~/repos/agent-ready-papers/literature/ (follow-up, not done)
 ---
 
 **Status:** single preprint, one lab, one task type. Borrow the vocabulary freely; treat the numbers

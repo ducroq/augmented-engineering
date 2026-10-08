@@ -1,7 +1,14 @@
 # Knowledge
 
-What we know or have observed about AI, LLMs, agent tooling and the wider landscape. It is not yet
-claim-worthy, or will never be. Internal working notes, per [ADR-009](../docs/decisions/ADR-009-knowledge-layer-separate-from-claims.md).
+What working with AI agents teaches us, and broader perspectives on AI (cognition, policy, economics,
+society). It is not yet claim-worthy, or will never be. Internal working notes, per
+[ADR-009](../docs/decisions/ADR-009-knowledge-layer-separate-from-claims.md) (amended).
+
+**Looking for model facts?** Model behaviour, quirks, bake-offs, judge/oracle method and cost live in
+`~/repos/veen-systems/infra/ai-tooling/models.md`. The map of where *every* kind of AI knowledge lives
+in the estate (stack, sovereignty, harness experiments, framework, literature) is the table in
+`~/repos/veen-systems/infra/ai-tooling/README.md`. Don't copy those facts here; link them from an entry
+when a lesson depends on them.
 
 ## How this differs from claims, examples and the watch list
 
@@ -10,7 +17,8 @@ claim-worthy, or will never be. Internal working notes, per [ADR-009](../docs/de
 | `claims/claim-registry.md` | What we claim publicly | High: confidence-tiered, evidence-mapped |
 | `examples/` | Published evidence that maps to a pattern | High: sourced, pattern-first |
 | `knowledge/watch-list.md` | Early items that might become an example | Medium: has a promotion trigger |
-| `knowledge/` (everything else) | What we know or have observed | Low: sourced and dated, nothing more |
+| `knowledge/` (everything else) | Lessons and perspectives | Low: sourced and dated, nothing more |
+| `infra/ai-tooling/` (other repo) | Model and tooling facts: what runs, how models behave | Measured vs on report, per that repo |
 
 Knowledge feeds claims through the registry's normal process. Never cite `knowledge/` directly in
 public content (site, podcast, articles). Check the registry first.
@@ -19,9 +27,8 @@ public content (site, podcast, articles). Check the registry first.
 
 | Directory | Scope |
 |-----------|-------|
-| [`models/`](models/) | Behavioural properties of models and model generations: what they do well, what they get wrong, what changed. Feeds *Learn the Material*. |
-| [`tooling/`](tooling/) | Agent harnesses, MCP, skills, hooks, IDE integrations: what works, what broke, cost and latency. Feeds *Context Is Architecture* and *Layer Your Verification*. |
-| [`landscape/`](landscape/) | Broader perspectives: economics, labour, education, regulation, and positions we disagree with. Context for framing, not evidence. |
+| [`landscape/`](landscape/) | Broader perspectives: cognition, economics, labour, education, regulation, and positions we disagree with. Context for framing, not evidence. |
+| (top level) | Lessons: what a set of model or tooling facts teaches about engineering with agents. Feeds the patterns, e.g. *Learn the Material*. Add a subfolder only when there are several. |
 | [`watch-list.md`](watch-list.md) | Research and tooling that might be promoted to `examples/`. Has its own rules. |
 
 ## Entry format
@@ -66,4 +73,4 @@ feeds: <pattern name and/or claim ID, or "none">
 <!-- One line per entry: - [title](path) — one-line hook (shelf_life, last_verified) -->
 
 - [Cognitive surrender vs. cognitive offloading](landscape/cognitive-surrender.md) — Shaw & Nave preprint: people follow wrong AI 80% of the time, feedback helps (12-24m, 2026-10-08)
-- [AI sovereignty is decided per layer](landscape/ai-sovereignty-per-layer.md) — Rikap/Stikker via De Groene: sovereign-washing, public AI, per-layer control (12-24m, 2026-10-08)
+- [Sovereign-washing and public AI](landscape/ai-sovereignty-per-layer.md) — Rikap/Stikker via De Groene: perspective only; axes live in infra/ai-tooling/sovereignty.md (12-24m, 2026-10-08)

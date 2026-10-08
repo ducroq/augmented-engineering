@@ -1,7 +1,7 @@
 # ADR-009: A Knowledge Layer, Separate from the Claim Layer
 
 **Date:** 2026-10-08
-**Status:** Accepted
+**Status:** Accepted, amended 2026-10-08 (scope narrowed, see Amendment)
 
 ## Context
 
@@ -62,9 +62,8 @@ claim layer.
 
 ## Alternatives Considered
 
-- **Separate repo** — knowledge survives whatever happens to the brand in the ADR-008 merge. Rejected
-  for now: the knowledge is most useful next to the patterns and claims it feeds, and splitting it out
-  is cheap later if needed.
+- **Separate repo** — rejected. See the Amendment: the model and tooling facts already have an
+  estate-level home in `infra/ai-tooling/`, which is not tied to this brand.
 - **Widen `WATCH-LIST.md`** — rejected: one flat table cannot hold model properties, tooling notes and
   landscape views, and it would dilute the watch list's clear promotion purpose.
 - **Lower the claim registry bar** — rejected: breaks the confidence-calibration constraint that
@@ -80,3 +79,23 @@ claim layer.
   watch list.
 - More than a third of entries are past their shelf life at a `/curate` run: the expiry discipline
   is failing and the format needs to change.
+
+## Amendment (2026-10-08, same day)
+
+The original decision was written without checking the rest of the estate. An inventory of about 20
+repos the same day showed that `infra/ai-tooling/` already owns model, tooling and sovereignty
+knowledge. Its README records "what we *run* and *decided*" there and "what it *teaches*" here,
+and SovereignStack owns the development track. Two `knowledge/` areas (`models/`, `tooling/`)
+would have been second copies, which breaks this repo's own ground-truth rule.
+
+**Narrowed scope.** `knowledge/` holds only:
+- what working with agents **teaches** (synthesis that may later feed claims);
+- **perspectives**: cognition, policy, economics, society (`landscape/`);
+- the **watch list**.
+
+Model behaviour, comparisons, eval method and cost live in `infra/ai-tooling/models.md`. The
+estate-wide map of where each kind of AI knowledge lives is the table in
+`infra/ai-tooling/README.md`, and there is no second map here. `knowledge/models/` and
+`knowledge/tooling/` were removed (both empty).
+
+The two-tier rule (knowledge ≠ claims), the entry format and the expiry rules are unchanged.
