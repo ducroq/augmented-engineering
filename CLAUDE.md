@@ -11,13 +11,14 @@ Durable tools and patterns for engineers working with AI agents.
 
 | When | Read |
 |------|------|
-| Starting any session | Compare the `agent-ready-projects: vX.Y.Z` line in this file's header against `C:/local_dev/agent-ready-projects/CHANGELOG.md` (local clone) or https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md. If the project is behind the latest released version, briefly surface the drift to the user before starting work. Don't auto-update — adopting changes is the engineer's call. |
+| Starting any session | Compare the `agent-ready-projects: vX.Y.Z` line in this file's header against `~/repos/agent-ready-projects/CHANGELOG.md` (local clone) or https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md. If the project is behind the latest released version, briefly surface the drift to the user before starting work. Don't auto-update — adopting changes is the engineer's call. |
 | Understanding the core argument | `PROPOSITION.md` — the four patterns and what's genuinely new |
 | Reviewing critical feedback | `REVIEW-SYNTHESIS.md` — six reviews + priority action plan |
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
 | Working on a case study | `case-studies/README.md` — template and conventions (own projects) |
 | Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
-| Tracking research/tooling not yet pattern-fit | `WATCH-LIST.md` — staging area before promotion to `examples/` |
+| Recording what we know about models, tooling, landscape | `knowledge/README.md` — internal dated knowledge layer, separate from claims (ADR-009) |
+| Tracking research/tooling not yet pattern-fit | `knowledge/watch-list.md` — staging area before promotion to `examples/` |
 | Working on research content | `research/README.md` — research questions and methodology |
 | Working on the guide | `guide/README.md` — pattern library structure |
 | Writing or reviewing prose | `docs/writing-guide.md` — nine-component writing system (voice, logic, tension, dialogue) |
@@ -65,7 +66,7 @@ augmented-engineering/
 ├── PROPOSITION-vmodel-reposition.md  # Draft: connecting Digital Engineer research to patterns (parked)
 ├── REVIEW-SYNTHESIS.md      # Critical reviews from 6 perspectives
 ├── CHEATSHEET.md            # Practitioner-friendly decision rules
-├── WATCH-LIST.md            # Staging area for research/tooling not yet pattern-fit
+├── knowledge/               # Internal knowledge layer (ADR-009): models/, tooling/, landscape/, watch-list.md
 ├── case-studies/            # Five case studies (pattern-first, own projects)
 │   ├── README.md            # Template + conventions
 │   ├── opal.md              # Recursive V&V
@@ -95,7 +96,7 @@ augmented-engineering/
 ├── presentations/           # Slide decks and talk materials
 ├── agent-instructions/      # Reusable .agent.md instruction files (EVDK examples)
 ├── docs/
-│   ├── decisions/           # ADRs — 7 decisions (index in README.md)
+│   ├── decisions/           # ADRs — 9 decisions (index in README.md)
 │   ├── VIBE.md              # Visual identity direction
 │   └── writing-guide.md     # Writing system — voice, logic, tension, dialogue
 ├── site/                    # Astro website (dark mode, Inter, semantic color)
