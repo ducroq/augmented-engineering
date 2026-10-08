@@ -42,6 +42,21 @@
 **Root cause**: Mermaid needs elements to be visible in the DOM to measure and render SVGs. Hidden tabs (`display: none`) can't be rendered.
 **Fix**: Show all tabs on page load, run `mermaid.run().then()`, then hide non-active tabs after rendering completes. Tab switching just toggles display — no re-rendering.
 
+### New knowledge home created without checking the estate (2026-10-08) [RESOLVED]
+**Problem**: ADR-009 created `knowledge/models/` and `knowledge/tooling/` here; the same day an inventory showed `infra/ai-tooling/` already owned that scope (and said so in its README). ADR amended, folders removed.
+**Root cause**: Decided from inside one repo; the estate-wide boundary lives in another repo's README.
+**Fix**: Before adding any home for AI/model/tooling knowledge, read the map in `~/repos/veen-systems/infra/ai-tooling/README.md` first.
+
+### Moving a file broke a pointer in a sibling repo (2026-10-08) [RESOLVED]
+**Problem**: `git mv WATCH-LIST.md knowledge/watch-list.md` left `infra/ai-tooling/README.md` pointing at a missing file.
+**Root cause**: Only this repo was grepped for references before the move.
+**Fix**: Before moving or renaming a file other repos may cite, `grep -rn <name> ~/repos/veen-systems ~/repos/agent-ready-*` (excluding node_modules) and fix the pointers in the same pass.
+
+### Push to a public repo carried an unreviewed earlier commit (2026-10-08) [RESOLVED]
+**Problem**: "Push" sent 4 commits, including an earlier commit with personal/business details not meant for publication, to a PUBLIC GitHub repo. Corrected after the fact.
+**Root cause**: Pushed the branch without listing `origin/master..HEAD` or checking repo visibility; `knowledge/` was also described as "internal" in a public repo.
+**Fix**: Before any push here: `gh repo view --json visibility` and `git log origin/master..HEAD`; read every commit not written this session. Nothing about people, negotiations or money goes into this repo.
+
 ## Promoted
 
 | Entry | Promoted to | Date |

@@ -1,5 +1,24 @@
 # Memory
 
+## Next session — what "continue" means (savepoint 2026-10-08)
+
+Re-verify each item before acting (`git status`, `gh issue view`). In order:
+
+1. **Framework drift**: this repo pins agent-ready-projects **v1.10.0**; the local clone is at **v1.49.2**. Run
+   `/update-drift` first. It may change CLAUDE.md, the curate skill and verify annotations, so do it before content work.
+2. **Learn the Material single source** (GH #48): the property list is hand-copied in
+   PROPOSITION.md §1, CHEATSHEET.md, README.md, `site/src/pages/patterns/learn-the-material.astro` and
+   `site/src/components/IllustrationMaterial.astro`. Make PROPOSITION.md canonical; source the evidence from
+   `~/repos/veen-systems/infra/ai-tooling/models.md`. Site edits wait on the ADR-008 freeze.
+3. **Evidence-issue backlog**: ~35 open "Evidence:" issues (#7–#47) filed from source repos, untriaged into
+   claims/knowledge. Triage, don't bulk-close.
+4. **Not this repo, listed so they don't get lost**: a Shaw & Nave card in `~/repos/agent-ready-papers/literature/`;
+   infra-side follow-ups live in infra's memory (`ai-knowledge-map-followups.md`).
+5. **Engineer decisions pending**: the ADR-008 merge terms (blocks site work); whether a history rewrite is wanted
+   (gotcha-log 2026-10-08, public push).
+
+Context: `memory/session_2026-10-08_knowledge-map.md`.
+
 ## Topic Files
 
 | File | When to load | Key insight |
@@ -9,6 +28,7 @@
 | `memory/project_aug_podcast_marketing.md` | Working on podcast | Series identity, competitive landscape, growth path |
 | `memory/feedback_echo_chamber.md` | Adding new evidence | Circular evidence risk — case studies verifying themselves |
 | `memory/reference_tandemize.md` | Discussing external partnerships | Tandemize.ai potential synergy |
+| `memory/session_2026-10-08_knowledge-map.md` | Context on knowledge/ scope, the infra AI-knowledge map, open threads | Ask + thread list; follow-ups in infra memory |
 | `memory/session_2026-03-19_podcast_launch.md` | Context on podcast creation decisions | Marathon session: memory migration, framework v1.2.0 |
 | `docs/decisions/README.md` | Making an architectural decision | ADR index — 9 decisions (podcast, site reframe, umbrella pivot, tandemize merge, knowledge layer) |
 | `knowledge/README.md` | Recording lessons or perspectives on AI | Low-bar dated layer; never cite directly in public content (ADR-009, amended) |
@@ -22,6 +42,7 @@
      "if [situation], then [what to do]" — promoted from gotcha-log YYYY-MM-DD -->
 
 - If memory accumulates in auto-memory (~/.claude/projects/), move it in-repo to `memory/` — promoted from gotcha-log 2026-03-19
+- If adding a home for AI/model/tooling knowledge, read the map in `~/repos/veen-systems/infra/ai-tooling/README.md` first; before moving a file, grep sibling repos for pointers; before pushing this PUBLIC repo, read every commit in `origin/master..HEAD` — from session 2026-10-08 (gotcha-log)
 - If embedding non-HTML DSLs (Mermaid, diagrams) in Astro, never place them in template markup — use JS strings with `set:html` or `textContent`, and prefix links with `import.meta.env.BASE_URL` — promoted from gotcha-log 2026-04-03
 
 ## Current State

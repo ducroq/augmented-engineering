@@ -12,6 +12,7 @@ Durable tools and patterns for engineers working with AI agents.
 | When | Read |
 |------|------|
 | Starting any session | Compare the `agent-ready-projects: vX.Y.Z` line in this file's header against `~/repos/agent-ready-projects/CHANGELOG.md` (local clone) or https://github.com/ducroq/agent-ready-projects/blob/master/CHANGELOG.md. If the project is behind the latest released version, briefly surface the drift to the user before starting work. Don't auto-update — adopting changes is the engineer's call. |
+| Engineer says "continue" | `memory/MEMORY.md` § "Next session" — the savepoint: ordered next actions |
 | Understanding the core argument | `PROPOSITION.md` — the four patterns and what's genuinely new |
 | Reviewing critical feedback | `REVIEW-SYNTHESIS.md` — six reviews + priority action plan |
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
@@ -83,17 +84,14 @@ augmented-engineering/
 │   ├── wisdom-not-intelligence.md       # Qodo $70M: Verification + Context
 │   └── developers-think-faster.md       # METR: Learn the Material
 ├── research/                # Research questions + methodology
-├── guide/                   # Pattern library
-│   ├── patterns/            # Scaffolded, not yet populated
-│   ├── anti-patterns/       # Scaffolded, not yet populated
+├── guide/                   # Pattern library (patterns/, anti-patterns/ planned, not created)
 │   └── by-phase/            # V-model phase mapping (populated)
 ├── claims/
 │   └── claim-registry.md    # 17 claims, 59% coverage
 ├── podcast/                 # Augmented Engineering podcast
 │   ├── dialogen/            # Episode scripts
 │   ├── shownotes/           # Show notes with claim verification
-│   ├── productie/           # Production pipeline
-│   └── onderzoek/           # Research material
+│   └── productie/           # Production pipeline
 ├── presentations/           # Slide decks and talk materials
 ├── agent-instructions/      # Reusable .agent.md instruction files (EVDK examples)
 ├── docs/
@@ -112,7 +110,6 @@ augmented-engineering/
 │           └── log/         # Engineering log (agent-ready-projects release notes)
 ├── .claude/
 │   ├── agents/              # Review agents (7 core + 8 podcast personas)
-│   └── skills/curate/       # End-of-session curation skill
 └── memory/                  # In-repo memory (not auto-memory, per ADR-001)
     ├── MEMORY.md            # Index — loaded every session
     └── gotcha-log.md        # Problem → Root Cause → Fix archive

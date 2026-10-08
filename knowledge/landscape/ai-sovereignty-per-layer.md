@@ -39,10 +39,14 @@ redefine it:
 
 - It gives words for explaining *why* ese_bot and the estate treat sovereignty as architecture:
   "sovereign-washing" names the failure that per-layer checks exist to catch.
-- The article also claims a US cut-off of Anthropic models for EU use in spring 2026. That is
-  unverified, and is tracked as a trip-wire in `~/repos/veen-systems/infra/platform-watch.md`
-  (Anthropic row), not here. If it holds, the tool-agnostic constraint stops being a portability
-  nicety and becomes resilience.
+- The article also says the US switched off Anthropic models for European use in spring 2026. Checked
+  2026-10-08 (web, on report; see `~/repos/veen-systems/infra/platform-watch.md`, Anthropic row): that
+  is **garbled**. A US Commerce order of 2026-06-12 barred *all* foreign nationals (not the EU) from
+  the two newest models only. It was lifted on 06-30. The real lesson is narrower and sharper: export
+  control can pull the newest models from non-US users at a day's notice. That makes the
+  tool-agnostic constraint a resilience requirement, not only a portability nicety.
+- A cautionary note on the source: a respected weekly got this wrong in a side remark. Perspectives
+  pieces are evidence of *opinion*, not of fact.
 
 ## Counter-evidence / open questions
 
