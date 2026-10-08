@@ -65,4 +65,5 @@ feeds: <pattern name and/or claim ID, or "none">
 
 <!-- One line per entry: - [title](path) — one-line hook (shelf_life, last_verified) -->
 
-*No entries yet.*
+- [Cognitive surrender vs. cognitive offloading](landscape/cognitive-surrender.md) — Shaw & Nave preprint: people follow wrong AI 80% of the time, feedback helps (12-24m, 2026-10-08)
+- [AI sovereignty is decided per layer](landscape/ai-sovereignty-per-layer.md) — Rikap/Stikker via De Groene: sovereign-washing, public AI, per-layer control (12-24m, 2026-10-08)
