@@ -17,7 +17,7 @@ Durable tools and patterns for engineers working with AI agents.
 | Making any factual claim | `claims/claim-registry.md` — 17 claims, confidence tiers, calibrated language |
 | Working on a case study | `case-studies/README.md` — template and conventions (own projects) |
 | Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
-| Recording lessons or perspectives on AI | `knowledge/README.md` — internal dated layer, separate from claims (ADR-009, amended) |
+| Recording lessons or perspectives on AI | `knowledge/README.md` — dated working notes (public repo, not site), separate from claims (ADR-009, amended) |
 | Looking up model behaviour, tooling, sovereignty facts | `~/repos/veen-systems/infra/ai-tooling/README.md` — estate-wide map of AI knowledge; model behaviour in `models.md` there |
 | Tracking research/tooling not yet pattern-fit | `knowledge/watch-list.md` — staging area before promotion to `examples/` |
 | Working on research content | `research/README.md` — research questions and methodology |
@@ -67,7 +67,7 @@ augmented-engineering/
 ├── PROPOSITION-vmodel-reposition.md  # Draft: connecting Digital Engineer research to patterns (parked)
 ├── REVIEW-SYNTHESIS.md      # Critical reviews from 6 perspectives
 ├── CHEATSHEET.md            # Practitioner-friendly decision rules
-├── knowledge/               # Internal layer (ADR-009): lessons, landscape/ perspectives, watch-list.md
+├── knowledge/               # Working notes (ADR-009): lessons, landscape/ perspectives, watch-list.md
 ├── case-studies/            # Five case studies (pattern-first, own projects)
 │   ├── README.md            # Template + conventions
 │   ├── opal.md              # Recursive V&V

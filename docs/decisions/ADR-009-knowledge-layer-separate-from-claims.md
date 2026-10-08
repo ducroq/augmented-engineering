@@ -26,7 +26,7 @@ content and should stay strict.
 
 ## Decision
 
-Add a `knowledge/` directory as an **internal, low-bar, dated** knowledge layer, kept separate from the
+Add a `knowledge/` directory as a **low-bar, dated** knowledge layer, not published on the site,, kept separate from the
 claim layer.
 
 1. **Two tiers.** `knowledge/` holds what we *know or have observed* (sourced and dated, low bar to
@@ -36,7 +36,8 @@ claim layer.
 2. **Every entry expires.** Each entry has `added`, `last_verified`, and `shelf_life` fields
    (`durable` / `12-24m` / `6m`). Entries past their shelf life are re-verified or deleted. `/curate`
    step 0 (freshness check) is the natural place to surface them.
-3. **Internal, not site content.** `knowledge/` is working notes. It is not published on the site and
+3. **Not site content.** `knowledge/` is working notes. It is not published on the site (the repo
+   itself is public, so entries must be fit to be read by anyone) and
    is not brand investment, so it does not conflict with ADR-007 (don't build the umbrella ahead of the
    tools) or the ADR-008 freeze on brand-specific investment.
 4. **Watch list moves in.** `WATCH-LIST.md` becomes `knowledge/watch-list.md`. Its promotion and drop

@@ -1,7 +1,7 @@
 # Knowledge
 
 What working with AI agents teaches us, and broader perspectives on AI (cognition, policy, economics,
-society). It is not yet claim-worthy, or will never be. Internal working notes, per
+society). It is not yet claim-worthy, or will never be. Working notes, not site content, per
 [ADR-009](../docs/decisions/ADR-009-knowledge-layer-separate-from-claims.md) (amended).
 
 **Looking for model facts?** Model behaviour, quirks, bake-offs, judge/oracle method and cost live in
@@ -22,6 +22,10 @@ when a lesson depends on them.
 
 Knowledge feeds claims through the registry's normal process. Never cite `knowledge/` directly in
 public content (site, podcast, articles). Check the registry first.
+
+**This repo is public on GitHub.** "Not site content" does not mean private: write every entry as if
+anyone can read it. Summarise paywalled sources in your own words, and keep anything about people,
+negotiations or money out.
 
 ## Areas
 

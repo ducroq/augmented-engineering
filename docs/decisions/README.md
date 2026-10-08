@@ -14,7 +14,7 @@ Significant choices between approaches, with context, consequences, and alternat
 | [ADR-006](ADR-006-only-durable-patterns.md) | Accepted | Only structural (durable) patterns are core; model-dependent ones are advisory |
 | [ADR-007](ADR-007-umbrella-follows-tools.md) | Accepted | Don't build the umbrella ahead of the tools |
 | [ADR-008](ADR-008-one-front-merge-with-tandemize.md) | Proposed | Merge to one front with `tandemize.ai` (brand overlap); terms pending an ownership talk with Arian |
-| [ADR-009](ADR-009-knowledge-layer-separate-from-claims.md) | Accepted (amended) | `knowledge/` as an internal, dated layer for lessons, perspectives and the watch list, separate from the claim registry; model/tooling facts live in `infra/ai-tooling/` |
+| [ADR-009](ADR-009-knowledge-layer-separate-from-claims.md) | Accepted (amended) | `knowledge/` as a dated working-notes layer (not site content) for lessons, perspectives and the watch list, separate from the claim registry; model/tooling facts live in `infra/ai-tooling/` |
 
 ## When to Write an ADR
 
