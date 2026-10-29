@@ -20,6 +20,7 @@ Durable tools and patterns for engineers working with AI agents.
 | Adding external evidence | `examples/README.md` — conventions for evidence cards from published sources |
 | Recording lessons or perspectives on AI | `knowledge/README.md` — dated working notes (public repo, not site), separate from claims (ADR-009, amended) |
 | Looking up model behaviour, tooling, sovereignty facts | `~/repos/veen-systems/infra/ai-tooling/README.md` — estate-wide map of AI knowledge; model behaviour in `models.md` there |
+| Taking or revisiting a provisional bet | `docs/hypothesis-log.md` — open positions with falsification method and review-by date |
 | Tracking research/tooling not yet pattern-fit | `knowledge/watch-list.md` — staging area before promotion to `examples/` |
 | Working on research content | `research/README.md` — research questions and methodology |
 | Working on the guide | `guide/README.md` — pattern library structure |
@@ -96,6 +97,7 @@ augmented-engineering/
 ├── agent-instructions/      # Reusable .agent.md instruction files (EVDK examples)
 ├── docs/
 │   ├── decisions/           # ADRs — 9 decisions (index in README.md)
+│   ├── hypothesis-log.md    # Provisional bets (H-1: right leg of the V-model)
 │   ├── VIBE.md              # Visual identity direction
 │   └── writing-guide.md     # Writing system — voice, logic, tension, dialogue
 ├── site/                    # Astro website (dark mode, Inter, semantic color)
@@ -112,6 +114,7 @@ augmented-engineering/
 │   ├── agents/              # Review agents (7 core + 8 podcast personas)
 └── memory/                  # In-repo memory (not auto-memory, per ADR-001)
     ├── MEMORY.md            # Index — loaded every session
+    ├── archive/             # Retired history, resolved gotchas (not read by default)
     └── gotcha-log.md        # Problem → Root Cause → Fix archive
 ```
 

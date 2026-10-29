@@ -1,35 +1,49 @@
 # Memory
 
-## Next session — what "continue" means (savepoint 2026-10-08)
+## Next session — what "continue" means (savepoint 2026-10-29)
 
 Re-verify each item before acting (`git status`, `gh issue view`). In order:
 
-1. **Framework drift**: this repo pins agent-ready-projects **v1.10.0**; the local clone is at **v1.49.2**. Run
+1. **Framework drift**: this repo pins agent-ready-projects **v1.10.0**; latest release is **v1.50.0** (2026-10-27). Run
    `/update-drift` first. It may change CLAUDE.md, the curate skill and verify annotations, so do it before content work.
-2. **Learn the Material single source** (GH #48): the property list is hand-copied in
+2. **Right-leg bet: unpark the V-model proposition** (engineer's bet, 2026-10-29). Agents make the left leg
+   (specify/design/implement) cheap, so value moves to the right leg (verify/integrate/validate). Add a
+   "Why the right leg, why now" section to `PROPOSITION-vmodel-reposition.md`, built on: (a) the verification vs
+   validation split (agents take verification against spec and model; humans own validation: model fidelity,
+   right problem), which answers "verification gets automated too"; (b) simulation as oracle, from MathWorks' MCP
+   tooling (watch-list entry 2026-10-29), where a wrong model costs hardware; (c) cognitive surrender extended to
+   "the simulation passed". Evidence: E-1, Seifert et al. 2025. Calibrate as EMERGING ("may"). Then run
+   `review-devil` alone, not the full battery. Tracked: GH #51, H-1 in `docs/hypothesis-log.md`.
+3. **Learn the Material single source** (GH #48): the property list is hand-copied in
    PROPOSITION.md §1, CHEATSHEET.md, README.md, `site/src/pages/patterns/learn-the-material.astro` and
    `site/src/components/IllustrationMaterial.astro`. Make PROPOSITION.md canonical; source the evidence from
    `~/repos/veen-systems/infra/ai-tooling/models.md`. Site edits wait on the ADR-008 freeze.
-3. **Evidence-issue backlog**: ~35 open "Evidence:" issues (#7–#47) filed from source repos, untriaged into
-   claims/knowledge. Triage, don't bulk-close.
-4. **Not this repo, listed so they don't get lost**: a Shaw & Nave card in `~/repos/agent-ready-papers/literature/`;
+4. **Evidence-issue backlog**: open "Evidence:" issues (#7–#50) filed from source repos, untriaged into
+   claims/knowledge. Triage, don't bulk-close. While triaging, classify each for H-1 (verification vs validation,
+   agent- vs human-caught). Open issues: <!-- verify: n=$(gh issue list -L 300 --json number -q length 2>/dev/null) || { echo "CANNOT VERIFY: gh unavailable"; exit 0; }; echo "$n open issues"; [ "$n" -ge 1 ] -->50 on 2026-10-29.
+4b. **Keep shrinking the read surface** (engineer, 2026-10-29: prune, thin, mechanize, retire). Done: archive pass
+   (`memory/archive/`). Next: CLAUDE.md (10.6k chars) duplicates the Related Repos table and carries counts that
+   decay ("17 claims, 59% coverage"): turn counts into probes or drop them; retire `memory/reference_tandemize.md`
+   if the partnership is dead; consider closing evidence issues once folded into claims.
+5. **Not this repo, listed so they don't get lost**: a Shaw & Nave card in `~/repos/agent-ready-papers/literature/`;
    infra-side follow-ups live in infra's memory (`ai-knowledge-map-followups.md`).
-5. **Engineer decisions pending**: the ADR-008 merge terms (blocks site work); whether a history rewrite is wanted
+6. **Engineer decisions pending**: the ADR-008 merge terms (blocks site work); whether a history rewrite is wanted
    (gotcha-log 2026-10-08, public push).
 
-Context: `memory/session_2026-10-08_knowledge-map.md`.
+Context: `memory/session_2026-10-29_matlab-right-leg.md`; earlier threads `memory/session_2026-10-08_knowledge-map.md`.
 
 ## Topic Files
 
 | File | When to load | Key insight |
 |------|-------------|-------------|
-| `memory/gotcha-log.md` | Stuck or debugging | Problem-fix archive |
-| `claims/claim-registry.md` | Writing any content with factual claims | 17 claims tracked; 59% coverage; P0 at 40% |
+| `memory/gotcha-log.md` | Stuck or debugging | Open gotchas + Promoted table; resolved ones in `memory/archive/` |
+| `claims/claim-registry.md` | Writing any content with factual claims | Confidence tiers per claim |
 | `memory/project_aug_podcast_marketing.md` | Working on podcast | Series identity, competitive landscape, growth path |
 | `memory/feedback_echo_chamber.md` | Adding new evidence | Circular evidence risk — case studies verifying themselves |
 | `memory/reference_tandemize.md` | Discussing external partnerships | Tandemize.ai potential synergy |
+| `memory/session_2026-10-29_matlab-right-leg.md` | Context on the right-leg bet and the archive pass | Ask + thread list |
 | `memory/session_2026-10-08_knowledge-map.md` | Context on knowledge/ scope, the infra AI-knowledge map, open threads | Ask + thread list; follow-ups in infra memory |
-| `memory/session_2026-03-19_podcast_launch.md` | Context on podcast creation decisions | Marathon session: memory migration, framework v1.2.0 |
+| `memory/archive/` | Only when history is needed | Retired state history, resolved gotchas, old sessions |
 | `docs/decisions/README.md` | Making an architectural decision | ADR index — 9 decisions (podcast, site reframe, umbrella pivot, tandemize merge, knowledge layer) |
 | `knowledge/README.md` | Recording lessons or perspectives on AI | Low-bar dated layer; never cite directly in public content (ADR-009, amended) |
 | `~/repos/veen-systems/infra/ai-tooling/README.md` | Looking up any model/tooling/sovereignty fact | Estate-wide map of AI knowledge; `models.md` there indexes model behaviour |
@@ -45,42 +59,13 @@ Context: `memory/session_2026-10-08_knowledge-map.md`.
 - If adding a home for AI/model/tooling knowledge, read the map in `~/repos/veen-systems/infra/ai-tooling/README.md` first; before moving a file, grep sibling repos for pointers; before pushing this PUBLIC repo, read every commit in `origin/master..HEAD` — from session 2026-10-08 (gotcha-log)
 - If embedding non-HTML DSLs (Mermaid, diagrams) in Astro, never place them in template markup — use JS strings with `set:html` or `textContent`, and prefix links with `import.meta.env.BASE_URL` — promoted from gotcha-log 2026-04-03
 
-## Current State
+## Current State (2026-10-29)
 
-- **Proposition written** (`PROPOSITION.md`): "What's new when engineers work with AI agents" — four patterns from nine projects
-- **Reviewed by 6 agents** (`REVIEW-SYNTHESIS.md`): convergent feedback applied (inverted framing, split persistent/transient properties, added falsifiability)
-- **Five case studies written** (pattern-first, loosely coupled to claim registry)
-- **Website reframed as pattern library** (`site/`, 2026-03-28): Killed nine-projects section, leads with reader's problem not research. Quick reference decision table on homepage. Pattern pages restructured: problem → fix → try this → evidence. Per ADR-004.
-- **Four additional source projects explored**: llm-distillery, RenkumSpot, ese_bot, ovr.news (not yet case studies, but evidence in proposition)
-- **Driven-pendulum case study updated** (2026-03-16): Session 7 added — V&V on informal messages (5 errors caught in WhatsApp drafts), 6-agent parallel review (14 issues), human-in-the-loop "short solenoid" terminology catch. Claims E-1, T-1, T-2, C-1, C-2 evidence updated.
-- **Guide by-phase/ populated** (2026-03-17): V-model phase mapping with feedback loop framing and evidence links
-- **Guide patterns/ and anti-patterns/ scaffolded** but not yet populated
-- **Research track scaffolded** with README (questions + methodology statement)
-- **ADR-001 written in agent-ready-projects** (2026-03-19): In-repo memory over auto-memory — moved 28 projects (~75 files) from hidden auto-memory to visible in-repo `memory/` directories. Framework guidance updated.
-- **Augmented Engineering podcast created** (2026-03-19): Series "Augmented Engineering: the craft, not the hype" — ep 0 (introduction) and ep 1 (context engineering) scripted. 8-persona review battery created. ADR-001 written for dialogue writing style in podcast-generator.
-- **Global CLAUDE.md cliff discovered and fixed** (2026-03-19): Project-specific content (voice library, TTS engines) moved from global instructions to podcast-generator's CLAUDE.md. Added "global file cliff" guidance to framework.
-- **Full agent-ready-projects adoption** (2026-03-28): Upgraded v1.1.0 → v1.4.0. Added decision framework, ground truth designations, negative-results constraint, ADR index with README, /curate skill. CLAUDE.md architecture tree updated to match actual repo.
-- **Site reframed as pattern library** (2026-03-28): Per ADR-004. Leads with reader's problem, quick reference decision table, pattern pages restructured. Nine-projects section removed.
-- **Site base path links fixed** (2026-03-29): All internal hrefs now use import.meta.env.BASE_URL. See gotcha-log.
-- **Strategic pivot: tool umbrella** (2026-03-29): ADR-005/006/007. Augmented Engineering is a tool umbrella, not a research proposition. Only durable (structural) patterns are core. Don't build umbrella ahead of tools.
-- **VIBE.md created** (2026-03-29): Visual identity — Inter font, semantic-only color, clean surfaces. Replaces notebook/pencil aesthetic.
-- **Site redesigned per VIBE** (2026-03-29): Dark mode, Inter typography, clean surfaces. Core/advisory pattern split. agent-ready-projects tool page with tabbed Mermaid visual walkthrough (cliff, layers, loop, rhythm). Pill tabs, stadium-shaped nodes, dark-mode-aware classDef colors.
-- **Visual guide added to agent-ready-projects** (2026-03-29): 4-page Mermaid guide in docs/guide/ — linked from README. Also rendered on augmented-engineering site tool page.
-- **Issues filed**: #3 (extend review agents for umbrella), #4 (layered verification tooling as second flagship).
-- **Freshness check added to /curate** (2026-04-03): Step 0 checks dead references, stale memory (30+ days), lingering gotchas (14+ days), and ground truth drift. Reports only — engineer decides. Inspired by community "dreaming" discussion; adopted as human-triggered staleness detection, not autonomous overnight loops. Upstream to agent-ready-projects v1.4.0.
-- **Site tool page updated** (2026-04-03): Loop/Rhythm tabs reflect freshness check. Added "stale references" warning signal.
-- **Three Astro gotchas resolved and promoted** (2026-04-03): Base path, curly braces, display:none — all workarounds applied in code, promoted as Astro pattern.
-- **agent-ready-projects v1.5.0** (2026-04-04): Validation checklists, adversarial QA, git-reality validation, deployment context gotcha. Site homepage version bumped.
-- **agent-ready-projects v1.6.0** (2026-04-04): Doc sync step in /curate — catches documentation drift from code changes.
-- **agent-ready-projects v1.7.0** (2026-04-08): Structural health audit skill (/audit-context). Update prompt PART 2 delegates to skill instead of inlining checks. Site homepage version bumped.
-- **agent-ready-projects v1.7.1-1.7.2** (2026-04-11): ADR template with YAML frontmatter, decision matrices, "Revisit If" triggers. YAML frontmatter added to project-file and review-agent templates. Synthesized from ADR patterns across agent-ready-papers, RenkumSpot, shared_vault. Site tool page updated with decision records section.
-- **agent-ready-projects v1.8.0** (2026-04-12): Multiplayer coordination — Layer 5. Site log entry added, engineering log section created (5 entries v1.0.0–v1.8.0).
-- **agent-ready-projects v1.9.0** (2026-04-14): Self-verifying memory — agents embed verification commands in state claims. Site log entry added, homepage updated (version badge, feature highlight, log list). Landscape updated with Superpowers (151K+ stars). 10 test fixtures for curate verification protocol.
-- **Writing guide adopted** (2026-04-14): Nine-component writing system placed at `docs/writing-guide.md`. Originated from satirical essay project, adapted for Augmented Engineering. Placeholders filled with project voice (DO/DON'T table, flag table, reader profile). Calibration examples use actual article excerpts. CLAUDE.md, VIBE.md updated to reference it. All six writing articles audited against the guide and revised — self-implication beats added to every article, counter-evidence acknowledged, closings revised to hold tension.
-- **Curious-humble stance added to writing guide** (2026-04-16): New subsection in Section 1 (voice) + two DO/DON'T rows. Re-audited all six articles and PROPOSITION.md against it. Systemic finding: universal negatives ("nobody," "none," "no guide") and unsourced prescriptions ("~100 lines is a ceiling"). Fixes: scoped universals to what the author surveyed, acknowledged best-guess reasoning, invited correction. PROPOSITION.md already embodied the stance strongly (falsifiability section, limitations section, alternative-lenses acknowledgment) — only heading tweak and "familiar foundation" softening needed. Case studies and podcast scripts not yet re-audited.
-- **WATCH-LIST.md created** (2026-05-18): Staging area for research/tooling that is not yet pattern-fit. Distinct from `examples/` (already-mature evidence). Promotion criteria: working-engineer-applicable + replication/adoption + clear pattern fit. Drop rule: 6 months without movement. First entry: RecursiveMAS (UIUC + Stanford, VentureBeat 2026-05-15) — multi-agent embedding-space communication, candidate for *Learn the Material* if it sees adoption in mainstream agent tooling. Registered in CLAUDE.md "Before You Start" and Architecture sections. Moved to `knowledge/watch-list.md` 2026-10-08 (ADR-009).
-- **Adopted agent-ready-projects v1.10.0** (2026-05-18): Bumped from v1.9.0. Added session-start drift-check row as top entry in CLAUDE.md "Before You Start" (the cheap mechanism that closes the silent-drift gap — ovr.news ran on v1.7.0 undetected for months, motivating v1.10.0). Hypothesis log template not instantiated yet (no provisional positions to track). Project-file size budget check already present in user-level /curate skill.
-- **Knowledge layer added** (2026-10-08): ADR-009. `knowledge/` for what we know but do not claim publicly. Amended same day after an estate-wide inventory: scope narrowed to lessons, perspectives (`landscape/`) and the watch list; model/tooling facts live in `infra/ai-tooling/` (`models.md` + map in README). Entries carry `added`/`last_verified`/`shelf_life`; expired entries re-verified or deleted at `/curate`. `WATCH-LIST.md` moved to `knowledge/watch-list.md`, rules unchanged. Internal only, not site content (compatible with ADR-007/008).
+- **Position**: tool umbrella (ADR-005/006/007); flagship agent-ready-projects. Site is a pattern library (ADR-004), deployed by `.github/workflows/deploy.yml` on every push to master; site edits frozen pending ADR-008.
+- **Content**: PROPOSITION.md (four patterns), 5 case studies, 5 examples, claim registry (17 claims), writing guide, `knowledge/` layer (ADR-009), podcast eps 00-01 scripted.
+- **Open bet**: the right leg of the V-model (H-1 in `docs/hypothesis-log.md` <!-- verify: grep -c '^### \[2026-10-29\] H-1' docs/hypothesis-log.md -->, GH #51).
+- **Read surface pruned** (2026-10-29): changelog-style Current State, resolved gotchas and the 2026-03-19 session file moved to `memory/archive/` (not read by default).
+- History before 2026-10-29: `memory/archive/current-state-history-2026.md`.
 
 ## Related Repos — Quick Reference
 
@@ -96,20 +81,9 @@ Context: `memory/session_2026-10-08_knowledge-map.md`.
 | ese_bot | `docs/ARCHITECTURE.md` + `docs/decisions/` |
 | ovr.news | `CLAUDE.md` + `docs/decisions/` |
 
-## Podcast — Augmented Engineering: the craft, not the hype
+## Podcast
 
-| File | Contents |
-|------|----------|
-| `memory/project_aug_podcast_marketing.md` | Series identity, competitive landscape, proposition, growth path, cognitive load insight, tandemize.ai funnel strategy |
-| `memory/reference_tandemize.md` | Friend's planned augmented engineering business, potential podcast synergy |
-| `memory/feedback_echo_chamber.md` | Circular evidence risk — case studies verifying themselves |
-| `memory/session_2026-03-19_podcast_launch.md` | Marathon session: podcast creation, memory migration, framework v1.2.0, personal insights |
-
-- Scripts live in `podcast/dialogen/` (ep 00 intro + ep 01 context engineering)
-- Show notes with claim verification live in `podcast/shownotes/`
-- Review agents (8 personas + orchestrator) live in `.claude/agents/ae-review-*.md`
-- ADR-001 (dialogue writing style for local TTS) lives in podcast-generator: `docs/decisions/`
-- Digital Engineers research (local, outside this repo) is the source for podcast stats — extraction report produced with ~30 findings mapped to episodes
+Strategy: `memory/project_aug_podcast_marketing.md`. Scripts `podcast/dialogen/` (ep 00, 01), show notes `podcast/shownotes/`, review agents `.claude/agents/ae-review-*.md`. Dialogue-style ADR-001 lives in podcast-generator. Stats source: Digital Engineers research (local, outside this repo).
 
 ## Active Decisions
 
@@ -117,7 +91,7 @@ Context: `memory/session_2026-10-08_knowledge-map.md`.
 - **Case study style**: Pattern-first, loosely coupled to claim registry — not thesis chapters
 - **Material properties split**: Persistent (confidence inflation, observation-calibration gap) vs. transient (scoring regression, plausible-but-wrong severity)
 - **Personal project**: No institutional references (HAN removed from all public-facing docs)
-- **Adopted agent-ready-projects v1.10.0**: Layered memory system for session continuity. v1.10.0 adds session-start framework-drift check (top row in "Before You Start") + hypothesis log template + project-file size budget. v1.9.0 added self-verifying memory. v1.8.0 added multiplayer coordination (Layer 5). Previous: v1.7.x YAML frontmatter, v1.6.0 doc sync, v1.5.0 validation checklists
+- **Framework**: agent-ready-projects, version pinned in CLAUDE.md header (drift: savepoint item 1)
 - **Adopted agent-ready-papers claim registry**: Typed verification with confidence tiers
 - **Feedback loop framing adopted** (2026-03-17): "agent generates → agent reviews → agent validates → engineer decides" — borrowed from practitioner discourse, grounded in our evidence
 - **In-repo memory by default**: Memory files live in `memory/` inside the repo, not in tool auto-memory. Exception only for content that should never be committed. Per ADR-001 in agent-ready-projects.
